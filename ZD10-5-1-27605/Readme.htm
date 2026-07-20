@@ -1,0 +1,542 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>ZDesigner Windows Driver Release Notes</title>
+<style type="text/css">
+.title-small {
+	margin: 0;
+	padding: 15px 10px 10px 6px;
+	color: #FFFFFF;
+	font-size: large;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	background-color: #00A7FF;
+	font-weight: bold;
+}
+.title-main {
+	margin: 0;
+	padding: 15px 10px 10px 6px;
+	color: #FFFFFF;
+	font-size: x-large;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	background-color: #00A7FF;
+	font-weight: bold;
+	line-height: normal;
+}
+.section-heading {
+	padding: 10px 10px 10px 6px;
+	background-color: #666666;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 1.1em;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+body {
+	padding: 0px;
+	margin: 0px auto 0px auto;
+	background-color: #ddd;
+}
+#container {
+	padding: 0px 50px 50px 50px;
+	margin: 0px auto 0px auto;
+	width: 75%;
+	height: 100%;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 0.8em;
+	color: #000000;
+	background-color: #FFFFFF;
+	line-height: 1.6em;
+}
+.table {
+	padding: 0px;
+	margin: 0px;
+	border: 1px solid #808080;
+}
+td {
+	border: 1px solid #808080;
+	padding: 4px;
+}
+li {
+	padding-top: 6px;
+}
+.auto-style2 {
+	background-color: #FFFFFF;
+}
+.auto-style3 {
+	line-height: 100%;
+}
+</style>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:ContentType msdt:dt="string">Document</mso:ContentType>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+
+<body>
+
+<div id="container" class="auto-style3">
+
+    <a name="Top"></a>
+	<p class="title-main">ZDesigner Windows Printer Driver Release Notes</p>
+	<p class="title-small">Version 10.5.1.27605</p>
+	<p class="section-heading"><strong>Table of Contents</strong></p>
+	<a href="#Welcome">Welcome</a><br><a href="#Supported_Operating_Systems">Supported Operating Systems</a><br>
+	<a href="#Installation">Installation</a><br><a href="#Supported_Printers">Supported Printers</a><br>
+	<a href="#Tips_&amp;_Advice">Tips &amp; Advice</a><br>
+	<a href="#Differences_between_ZDesigner_v5.x_and_v8.x">Differences between 
+	ZDesigner v5.x and v10.x</a><br><a href="#Change_Log">Change Log</a><br>
+	<a href="#Technical_Support">Technical Support</a><br>
+	<a href="#Software_Updates">Software Updates</a><p class="section-heading">
+	<strong><a name="Welcome">Welcome</a></strong></p>
+
+
+	Version 10.x of the ZDesigner 
+	Windows printer driver offers a new improved user interface in 20+ languages 
+	with new features to drive Zebra printers running Link-OS and the ZPL 
+	printer command language.<br><br>Our version 5.x driver is still available 
+	and will continue to support new and legacy Zebra printers using the EPL and 
+	CPCL command languages. 
+	<p><a href="#Top">Back to top</a><br></p>
+	<p class="section-heading"><strong><a name="Supported_Operating_Systems">Supported 
+Operating Systems</a></strong></p>
+	<p>This driver is supported on the following Microsoft 32-bit and 64-bit 
+	operating systems:</p>
+	<ul>
+		<li>Windows 10 desktop editions</li>
+		<li>Windows 
+11 desktop editions</li>
+		<li>Windows Server 2016</li>
+		<li>Windows Server 2019</li>
+		<li>Windows 
+Server 2022</li>
+	</ul>
+	<p>Windows is a registered trademark of Microsoft Corporation.</p>
+	<a href="#Top">Back to top</a>
+	<p class="section-heading"><strong>
+	<a name="Installation">Installation</a></strong></p>
+	It&#39;s recommended you use the Printer Installation Wizard included in the 
+	distribution to install the printer driver.<br>NOTE: your 
+user account must have the necessary permissions to install a driver otherwise 
+contact your system administrator for further assistance.<strong><br><br>Installation using the Printer Installation Wizard:</strong><ol >
+		<li>If necessary, extract the driver files noting the location of the files.</li>
+		<li>Run the PrnInst.exe application (Printer Installation Wizard). </li>
+		<li>Click the Install Printer Driver option and follow the prompts in the 
+	wizard. </li>
+	</ol>
+	<a href="#Top">Back to top</a><p class="section-heading"><strong>
+	<a name="Supported_Printers">Supported Printers</a></strong></p>
+	The following Zebra printers are supported in this 
+version:<br><br>iMZ220 (ZPL)<br>iMZ320 (ZPL)<br>QLn220 (ZPL)<br>QLn320 (ZPL)<br>
+	QLn420 (ZPL)<br>ZD120 203DPI<br>ZD220-203dpi ZPL<br>ZD230-203dpi ZPL<br>
+	ZD230-300dpi ZPL<br>ZD410-203dpi ZPL<br>ZD410-300dpi ZPL<br>ZD411-203dpi ZPL<br>
+	ZD411-300dpi ZPL<br>ZD420-203dpi ZPL<br>ZD420-300dpi ZPL<br>ZD421-203dpi ZPL<br>
+	ZD421-300dpi ZPL<br>ZD421CN-300dpi ZPL<br>ZD500-203dpi ZPL<br>ZD500-300dpi 
+	ZPL<br>ZD500R-203dpi ZPL<br>ZD500R-300dpi ZPL<br>ZD510-300dpi ZPL<br>
+	ZD511-300dpi ZPL<br>ZD611-203dpi ZPL<br>ZD611-300dpi ZPL<br>ZD611R-203dpi 
+	ZPL<br>ZD611R-300dpi ZPL<br>ZD620-203dpi ZPL<br>ZD620-300dpi ZPL<br>
+	ZD621-203dpi ZPL<br>ZD621-300dpi ZPL<br>ZD621R-203dpi ZPL<br>ZD621R-300dpi 
+	ZPL<br>ZD888-203dpi ZPL<br>ZD888-300dpi ZPL<br>ZE511 LH-203dpi ZPL<br>ZE511 
+	LH-300dpi ZPL<br>ZE511 LH-600dpi ZPL<br>ZE511 RH-203dpi ZPL<br>ZE511 
+	RH-300dpi ZPL<br>ZE511 RH-600dpi ZPL<br>ZE511R LH-203dpi ZPL<br>ZE511R 
+	LH-300dpi ZPL<br>ZE511R LH-600dpi ZPL<br>ZE511R RH-203dpi ZPL<br>ZE511R 
+	RH-300dpi ZPL<br>ZE511R RH-600dpi ZPL<br>ZE521 LH-203dpi ZPL<br>ZE521 
+	LH-300dpi ZPL<br>ZE521 RH-203dpi ZPL<br>ZE521 RH-300dpi ZPL<br>ZE521R 
+	LH-203dpi ZPL<br>ZE521R LH-300dpi ZPL<br>ZE521R RH-203dpi ZPL<br>ZE521R 
+	RH-300dpi ZPL<br>ZQ310 (ZPL)<br>ZQ310 Plus (ZPL)<br>ZQ320 (ZPL)<br>ZQ320 
+	Plus (ZPL)<br>ZQ510 (ZPL)<br>ZQ511 (ZPL)<br>ZQ511R (ZPL)<br>ZQ520 (ZPL)<br>
+	ZQ521 (ZPL)<br>ZQ521R (ZPL)<br>ZQ610 (ZPL)<br>ZQ610 Plus (ZPL)<br>ZQ620 
+	(ZPL)<br>ZQ620 Plus (ZPL)<br>ZQ630 (ZPL)<br>ZQ630 Plus (ZPL)<br>ZQ630R (ZPL)<br>
+	ZQ630R Plus (ZPL)<br>ZR318 (ZPL)<br>ZR328 (ZPL)<br>ZR328 Plus (ZPL)<br>ZR338 
+	(ZPL)<br>ZR628 (ZPL)<br>ZR638 (ZPL)<br>ZR658 (ZPL)<br>ZR668 (ZPL)<br>ZR668 
+	Plus (ZPL)<br>ZT111-203dpi ZPL<br>ZT111-300dpi ZPL<br>ZT210-200dpi ZPL<br>
+	ZT210-300dpi ZPL<br>ZT211-203dpi ZPL<br>ZT211-300dpi ZPL<br>ZT220-200dpi ZPL<br>
+	ZT220-300dpi ZPL<br>ZT230-200dpi ZPL<br>ZT230-300dpi ZPL<br>ZT231-203dpi ZPL<br>
+	ZT231-300dpi ZPL<br>ZT231R-203dpi ZPL<br>ZT231R-300dpi ZPL<br>ZT410-203dpi 
+	ZPL<br>ZT410-300dpi ZPL<br>ZT410-600dpi ZPL<br>ZT410R-203dpi ZPL<br>
+	ZT410R-300dpi ZPL<br>ZT410R-600dpi ZPL<br>ZT411-203dpi ZPL<br>ZT411-300dpi 
+	ZPL<br>ZT411-600dpi ZPL<br>ZT411R-203dpi ZPL<br>ZT411R-300dpi ZPL<br>
+	ZT411R-600dpi ZPL<br>ZT420-203dpi ZPL<br>ZT420-300dpi ZPL<br>ZT420R-203dpi 
+	ZPL<br>ZT420R-300dpi ZPL<br>ZT421-203dpi ZPL<br>ZT421-300dpi ZPL<br>
+	ZT421R-203dpi ZPL<br>ZT421R-300dpi ZPL<br>ZT510-203dpi ZPL<br>ZT510-300dpi 
+	ZPL<br>ZT610-203dpi ZPL<br>ZT610-300dpi ZPL<br>ZT610-600dpi ZPL<br>
+	ZT610R-203dpi ZPL<br>ZT610R-300dpi ZPL<br>ZT610R-600dpi ZPL<br>ZT620-203dpi 
+	ZPL<br>ZT620-300dpi ZPL<br>ZT620R-203dpi ZPL<br>ZT620R-300dpi ZPL<br>
+	<br><a href="#Top">Back to top</a><br>
+	<p class="section-heading"><strong><a name="Tips_&amp;_Advice">Tips &amp; Advice</a></strong></p>
+	<ol>
+		<li>The passthrough feature may not work correctly when using one or 
+		more specific characters in the starting sequence. The characters - &lt; 
+		and &gt; are known to be problematic due to the way some Windows 
+		applications pass data to the driver. Other characters not listed may 
+		also not work. To resolve the issue, change the start sequence 
+		characters. E.g. STARTOFZPLSEQUENCE </li>
+		<li>Printers typically have different minimum label lengths for the 
+		different operation modes, e.g. tear-off, peel-off, cutter etc. The minimum label 
+		length/height that can be set in the driver applies to the operation mode 
+		having the shortest minimum label length. Refer to the 
+		technical specification of your printer model for the minimum label 
+		length of each operation mode.</li>
+	</ol>
+	<a href="#Top">Back to top</a><p class="section-heading"><strong>
+	<a name="Differences_between_ZDesigner_v5.x_and_v8.x">Differences between 
+	ZDesigner v5.x and v10.x</a></strong></p>
+	<ol>
+		<li>The v10 driver supports Zebra printers running Link-OS and the ZPL printer 
+	command language. The v5 driver continues to support new and legacy Zebra printers 
+	using the EPL and CPCL command languages.</li>
+		<li>The number of copies option is no longer supported in v10 and instead 
+	is controlled in the application.</li>
+		<li>The unprintable area options are no longer supported in v10. 
+	Upgrading a v5 driver to v10 will result in 
+	the label image printing at the same position.</li>
+		<li>The ‘use printer settings’ option is no longer supported in v10. Instead, the 
+	v10 driver has improved functionality where the user has control of 
+	individual settings.</li>
+		<li>The ‘Safe graphics printing’ option is no 
+	longer supported in v10. This option affected the data stream when using the 
+	ZebraDesigner label design application. The printed label image is not 
+	affected.</li>
+		<li>The ‘use printer tag type’ RFID option is no longer supported in v10. In v5, 
+	it controlled the first parameter of the ^RS command which is no longer 
+	required for Link-OS printers.</li>
+		<li>The Font &amp; Graphic downloader application is no longer distributed with the 
+	v10 driver. Instead, font download functionality is part of the printer 
+	driver UI.</li>
+		<li>The Command Font parsed text option (for prefix and 
+	suffix) has changed in v10. The following internal parameters are no longer 
+	supported:<ul>
+			<li class="auto-style2">{xExp} x expansion of font.</li>
+			<li class="auto-style2">&nbsp;{yExp} y expansion of font.</li>
+			<li class="auto-style2">&nbsp;{PageWidth} Width of the current page in 
+		dots.</li>
+			<li class="auto-style2">&nbsp;{PageHeight} Height of the current page in 
+		dots.</li>
+			<li class="auto-style2">&nbsp;{Orientation} Page orientation.</li>
+			<li class="auto-style2">&nbsp;{Quantity} Quantity of pages to be 
+		printed.</li>
+			<li class="auto-style2">&nbsp;{PageNum} Number of the current page.</li>
+		</ul>
+		</li>
+		<li>The &#39;Use font height&#39; option for barcode fonts is no longer 
+	supported in v10. In v10, users can define the height of the barcode and this 
+	height is used for the barcode font.</li>
+		<li>In v10, the Import and Export of printer driver settings has been 
+	moved to the Driver Settings tab and is no longer available in the document 
+	settings dialog.</li>
+		<li>The Status Monitor application is no longer distributed with the v10 
+	driver but shall continue to be distributed with the v5 driver. It can be 
+	used with the v10 driver.</li>
+	</ol>
+	<a href="#Top">Back to top</a><p class="section-heading"><strong>
+	<a name="Change_Log">Change Log</a></strong></p>
+	<table cellspacing="0"  style="width: 100%">
+		<tr >
+			<td  style="width: 125px" valign="top"><strong>Release Date</strong></td>
+			<td  style="width: 120px" valign="top"><strong>Version</strong></td>
+			<td ><strong>Changes</strong></td>
+		</tr>
+		<tr >
+			<td  style="width: 125px" valign="top">28 Sep 2023</td>
+			<td  style="width: 120px" valign="top">10.5.1.27605</td>
+			<td >
+			<ul>
+				<li>Cosmetic changes in the driver user interface.</li>
+				<li>Corrected an issue where it was necessary to click the 
+				buttons twice in the Settings and Maintenance sections of the 
+				Driver Settings tab for the commands to execute.</li>
+				<li>Corrected an issue where the cutter did not cut after every 
+				label when Linerless Cut mode was selected.</li>
+				<li>Corrected an issue where \ and ^ characters were not encoded 
+				in a Code 128 barcode. </li>
+				<li>Corrected an issue where the inverse option for individual 
+				text elements or the entire label did not work for RFID Read and 
+				Print fields.</li>
+				<li>Port Monitor names will be truncated to a valid length if a 
+				name longer than 255 characters is entered during installation.</li>
+				<li>Added a "Use all settings set on printer" button in the 
+				Maintenance section of the Driver Settings dialog. With one 
+				click you can now enable "Use settings set on printer" for all 
+				the controls in the driver user interface, instead of needing to 
+				click them individually.</li>
+				<li>Added a feature for variable length printing.<ul>
+					<li>Check the "Stop on last element" option on the driver 
+					Page Setup screen to use this feature. </li>
+					<li>Media type must be set to continuous to enable the check 
+					box.</li>
+					<li>Media height setting must be set to the longest length 
+					document that will be printed.</li>
+					<li>Different applications may exhibit different behaviour 
+					and it may be necessary to set an "actual size" option in 
+					the printing application.</li>
+				</ul>
+				</li>
+				<li>Added the following printer models:<ul>
+					<li>ZD230 300 dpi</li>
+					<li>ZD888 300 dpi</li>
+				</ul>
+				</li>
+			</ul>
+			</td>
+		</tr>
+		<tr >
+			<td  style="width: 125px" valign="top">24 Aug 2022</td>
+			<td  style="width: 120px" valign="top">8.6.5.26125</td>
+			<td >
+			<ul>
+				<li>Corrected the minimum allowed width in the ZD410 driver.</li>
+				<li>Corrected an issue where UTF-8 characters were not generated 
+				correctly when exporting an XML template from ZebraDesigner for 
+				Developers.</li>
+				<li>Added support for controlling the RFID tag antenna offset in 
+				ZebraDesigner Professional 3.</li>
+				<li>Added the following printer models:<ul>
+					<li>ZQ310 Plus</li>
+					<li>ZQ320 Plus</li>
+					<li>ZQ610 Plus</li>
+					<li>ZQ620 Plus</li>
+					<li>ZQ630 Plus</li>
+					<li>ZQ630R Plus</li>
+					<li>ZR328 Plus</li>
+					<li>ZR668 Plus</li>
+			</ul>
+				</li>
+			</ul>
+			</td>
+		</tr>
+		<tr >
+			<td  style="width: 125px" valign="top">18 Mar 2022</td>
+			<td  style="width: 120px" valign="top">8.6.4.23832</td>
+			<td >
+		<ul>
+			<li>The speed settings have been corrected for the ZD888 model.</li>
+			<li>The minimum label length/height <span>has been corrected </span>for the <span>ZD420/421, ZD620/621 
+			and ZT610/620 models.</span><ul>
+				<li><span><strong>Note</strong>: the minimum value 
+			applies to the operation mode with the shortest supported label 
+				length. Other operation modes may have a different minimum 
+				length.</span></li>
+			</ul>
+			</li>
+			<li>Added the following printer models:<ul>
+				<li>ZT111</li>
+				<li>ZT211</li>
+				<li>ZT231</li>
+				<li>ZT231R</li>
+			</ul>
+			</li>
+		</ul>
+			</td>
+		</tr>
+		<tr >
+			<td  style="width: 125px" valign="top">24 Dec 2021</td>
+			<td  style="width: 120px" valign="top">8.6.4.23827</td>
+			<td >
+			<ul>
+				<li>Microsoft have changed the requirements and driver 
+				certification process to align with operating systems they currently 
+				support. In line with that change, this driver shall no longer be 
+				tested on, or certified for Windows 7, Windows 8.1 or Windows 
+				Server 2012.</li>
+				<li>The driver certification now includes Windows 11 and Windows 
+				Server 2022.</li>
+				<li>90 and 270 degree rotation options have been added to 
+				the ZD120 driver.</li>
+				<li>Corrected an issue where the installation wizard ran in 
+				English instead of Portuguese when the detected OS 
+				language/region was 1046,&nbsp;Portuguese (Brazil).</li>
+				<li>Corrected an issue where the black block did not print in 
+				the correct location when using the inverse field option in 
+				ZebraDesigner for Developers.</li>
+			</ul>
+			</td>
+		</tr>
+		<tr >
+			<td  style="width: 125px" valign="top">22 Jul 2021</td>
+			<td  style="width: 120px" valign="top">8.6.2.22850</td>
+			<td >
+			<ul>
+				<li>Corrected an issue related to vertical positioning of QR 
+				codes.</li>
+				<li>Corrected an issue where the font kit displayed in the 
+				ZebraDesigner 3 font list did not match the font kit enabled in 
+				the driver.</li>
+			</ul>
+			</td>
+		</tr>
+		<tr >
+			<td  style="width: 125px" valign="top">29 Jun 2021</td>
+			<td  style="width: 120px" valign="top">8.6.2.22655</td>
+			<td >
+			<ul>
+				<li>Corrected the minimum label height for the ZD420/421 and 
+				ZD620/621 printer models.</li>
+				<li>The RFID option has been removed from the list of operation 
+				modes as this option doesn&#39;t apply to the printer models in this 
+				driver.</li>
+				<li>Corrected the output commands for the Linerless Cut, 
+				Linerless Delay Cut and Delayed Cutter options.</li>
+				<li>Added a command line tool to allow scripting of importing 
+				and exporting driver settings. The tool is in the Tools folder. 
+				Details of its usage are in the driver help.</li>
+				<li>Corrected an issue where the RFID tag access password was 
+				only included in first label when printing multiple unique 
+				labels.</li>
+				<li>Corrected an issue where the RFID ^RU command was only 
+				included in first label when printing multiple unique labels.</li>
+				<li>Corrected an issue when using the <em>Generate print file 
+				with variables </em>option in ZebraDesigner for Developers where 
+				the variable was incorrectly formatted in the ^RF command.</li>
+				<li>Corrected an issue when using a variable for the EPC data in 
+				ZebraDesigner for Developers where an incorrect value was 
+				generated in the ^RW command for the&nbsp;number of bytes to write 
+				parameter.</li>
+				<li>Now when using the ZebraDesigner for Developers and 
+				Professional editions and the RFID PC value field is empty, no 
+				value is sent to the printer. Previously, a value of F800 was 
+				sent and could cause the printer to void instead of encoding the 
+				tag correctly depending on the tag used.</li>
+				<li>Added support for the following Zebra Font Kits:<ul>
+					<li>NOTOMRTC.TTF&nbsp;(Noto Sans Mono CJK TC)</li>
+					<li>NOTOMRJ.TTF (Noto Sans Mono CJK JP)</li>
+					<li>NOTOMRK.TTF (Noto Sans Mono CJK KR)</li>
+					<li>SGMTJ.TTF (MS Gothic J)</li>
+					<li>HANS.TTF (Source Han Sans SC)</li>
+					<li>SCPROR.TTF (Source Code Pro) </li>
+				</ul>
+				</li>
+			</ul>
+			</td>
+		</tr>
+		<tr >
+			<td  style="width: 125px" valign="top">02/25/2021</td>
+			<td  style="width: 120px" valign="top">8.2.1.18009</td>
+			<td >
+			<ul>
+				<li>Added the following printer model:<ul>
+					<li>ZD421CN</li>
+				</ul>
+				</li>
+			</ul>
+			</td>
+		</tr>
+		<tr >
+			<td  style="width: 125px" valign="top">06 Aug 2020</td>
+			<td  style="width: 120px" valign="top">8.2.1.18006</td>
+			<td >
+			<ul>
+				<li>Corrected an issue where fixed and variable fields were not 
+				vertically aligned when using Zebra fonts kits with 
+				ZebraDesigner for Developers.</li>
+				<li>Corrected the list of speed values for the ZD220 and ZD230 
+				printers.</li>
+				<li>Added an option in the ZD120 driver on the Page Setup tab to select 0 or 180 degrees 
+		rotation.</li>
+				<li>Added the following printer models:<ul>
+					<li>ZE511</li>
+					<li>ZE511R</li>
+					<li>ZE521</li>
+					<li>ZE521R</li>
+				</ul>
+				</li>
+			</ul>
+			</td>
+		</tr>
+		<tr >
+			<td  style="width: 125px" valign="top">24 Feb 2020</td>
+			<td  style="width: 120px" valign="top">8.2.0.18003</td>
+			<td >
+			<ul>
+				<li>Added a button on the Driver Settings &gt; Fonts tab to reload 
+				all fonts.</li>
+				<li>Store file to printer function now supports adding the 
+				CISDFCRC16 header.</li>
+				<li>Corrected an issue where some internal printer fonts 
+				didn&#39;t display correctly in Word 2016.</li>
+				<li>Improved driver installation using the network discovery 
+				process.</li>
+				<li>Continuous and non-continuous media types can now have 
+				different minimum height values.</li>
+				<li>Corrected an issue with the ^RFW command when using RFID and 
+				XML in ZebraDesigner for Developers.</li>
+				<li>Updated the Passthrough topic in the help documentation.</li>
+				<li>Enabled the options to specify cut n labels or after batch 
+				when using the Linerless Cut operation modes.</li>
+				<li>Added the following printer models:<ul>
+					<li>ZD411</li>
+					<li>ZD421</li>
+					<li>ZD611</li>
+					<li>ZD611R</li>
+					<li>ZD621</li>
+					<li>ZD621R</li>
+				</ul>
+				</li>
+			</ul>
+			</td>
+		</tr>
+		<tr >
+			<td  style="width: 125px" valign="top">22 Sep 2019</td>
+			<td  style="width: 120px" valign="top">8.1.0.17602</td>
+			<td >
+			<ul>
+				<li>Added support for the ZebraDesigner for Developers edition.</li>
+				<li>When exporting templates from ZebraDesigner 3 applications 
+				the ^FN commands now starts at 1 instead of 0 
+				to ensure the associated prompts are displayed in various applications.</li>
+				<li>
+				<span style="mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-GB; mso-fareast-language: EN-GB; mso-bidi-language: AR-SA">
+				Added an option to specify the aspect ratio (square or 
+				rectangular) 
+				in the Barcode Settings 
+				section for the Datamatrix barcode font. </span>
+				</li>
+				<li>
+				The Direct print (^GF) graphic option is now supported.</li>
+				<li>
+				Corrected placement of RFID commands. They are now after 
+				all other label elements.</li>
+				<li>
+				Corrected the ZD120 print width from 10.1 cm to 10.4 cm.</li>
+				<li>
+				Added the following printer models:<ul>
+					<li>ZD220</li>
+					<li>ZD230</li>
+					<li>ZD888</li>
+				</ul>
+				</li>
+			</ul>
+			</td>
+		</tr>
+		<tr >
+			<td  style="width: 125px" valign="top">22 Jun 2019</td>
+			<td  style="width: 120px" valign="top">8.0.0.16033</td>
+			<td >
+			<ul>
+				<li>Initial release of the version 8 driver platform.</li>
+			</ul>
+			</td>
+		</tr>
+	</table>
+	<p ><a href="#Top">Back to top</a></p>
+	<p class="section-heading"><strong><a name="Technical_Support">Technical Support</a></strong></p>
+	<div>
+	Worldwide Technical Support is available through your Reseller or at:
+<a href="https://www.zebra.com/contact" target="_blank">https://www.zebra.com/contact</a><br>
+		<br>Zebra Technologies Corporation<br>
+		Corporate &amp; International Headquarters<br>
+		3 Overlook Point<br >
+		Lincolnshire, Illinois 60069 USA<br>
+		Phone: +1 847 913 2259<br>
+		Fax: +1 847 913 2578<br>
+		<br><a href="#Top">Back to top</a></div>
+	<p class="section-heading"><strong><a name="Software_Updates">Software Updates</a></strong></p>
+	ZDesigner printer drivers are frequently updated and modified to take advantage of new developments. Updated drivers will be available on our website: <a href="https://www.zebra.com/support">https://www.zebra.com/support</a><br>
+	<br><a href="#Top">Back to top</a><br><br><hr>
+	<p ><strong>©2023 Zebra Technologies Corporation and/or its affiliates. All rights reserved.</strong></p>
+
+</div>
+</body>
+
+</html>

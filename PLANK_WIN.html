@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<style>
+
+body { background: #0078d7; color: white; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: sans-serif; }
+
+.loader { border: 6px solid rgba(255,255,255,0.3); border-top: 6px solid white; border-radius: 50%; width: 50px; height: 50px; animation: spin 1.5s linear infinite; margin: auto; }
+
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+</style>
+
+</head>
+
+<body>
+
+<div style="text-align:center;">
+
+<div class="loader"></div>
+
+<h1 id="txt">Working on updates 0%</h1>
+
+<p>Please keep your computer on.</p>
+
+</div>
+
+<script>
+
+let p = 0;
+
+function run() {
+
+if (p < 99) {
+
+p++;
+
+document.getElementById("txt").innerText = "Working on updates " + p + "%";
+
+setTimeout(run, p > 90 ? 2000 : 150);
+
+}
+
+}
+
+run();
+
+window.onkeydown = function(e) {
+
+if (e.keyCode == 13) {
+
+document.body.style.background = "#0010c5";
+
+document.body.innerHTML = "<h1>:(</h1><h2>Error!</h2>";
+
+}
+
+};
+
+</script>
+
+</body>
+
+</html>

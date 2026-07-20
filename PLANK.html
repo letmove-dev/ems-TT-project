@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+
+<html> <head> <meta charset="UTF-8"> <title>IT System Update</title> <style> body { background: #eeeeee; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; overflow: hidden; font-family: sans-serif; } .card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; width: 400px; } h1 { color: red; } .btn-box { margin-top: 30px; display: flex; justify-content: center; gap: 20px; } button { padding: 15px 25px; font-size: 18px; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; } #yes { background: green; color: white; } #no { background: red; color: white; position: absolute; z-index: 999; } </style> </head> <body>
+
+<div class="card"> <h1>ยืนยันระบบใหม่</h1> <p>คุณยอมรับการ <b>"หักเงินเดือน 20%"</b>
+
+
+เพื่อเป็นค่าบุฟเฟต์ทุเรียนออฟฟิศหรือไม่?</p> <div class="btn-box"> <button id="yes" onclick="alert('ยินดีด้วย! ระบบบันทึกการสละเงินของคุณแล้ว')">ตกลง</button> <button id="no">ไม่เอา!</button> </div> </div>
+
+<script> var b = document.getElementById('no'); b.style.left = '55%'; b.style.top = '55%';
+
+b.addEventListener('mouseover', function() { var x = Math.random() * (window.innerWidth - 100); var y = Math.random() * (window.innerHeight - 50); b.style.left = x + 'px'; b.style.top = y + 'px'; }); </script>
+
+</body> </html>

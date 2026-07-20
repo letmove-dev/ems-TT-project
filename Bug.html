@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>IT Blaster: Bug Annihilation - System Debugging</title>
+    <style>
+        body {
+            background-color: #0d1117; /* Dark background like a dev terminal */
+            color: #0f0;
+            font-family: 'Consolas', monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Hide scrollbars */
+        }
+        #gameCanvas {
+            border: 2px solid #00f; /* Blue border for system integrity */
+            background-color: #161b22; /* Slightly lighter dark background for game area */
+            box-shadow: 0 0 25px rgba(0, 0, 255, 0.4);
+            cursor: crosshair; /* Aiming cursor */
+        }
+        .game-info {
+            width: 800px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            text-transform: uppercase;
+        }
+        #overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            color: #0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 100;
+            display: none; /* Hidden by default */
+        }
+        #overlay h2 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #f00; /* Red for critical error */
+        }
+        #overlay p {
+            font-size: 1.5em;
+        }
+        #overlay button {
+            background: #00f;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-family: 'Consolas', monospace;
+            font-size: 1.5em;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 30px;
+            box-shadow: 0 0 15px rgba(0, 0, 255, 0.6);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        #overlay button:hover {
+            background-color: #00a;
+            box-shadow: 0 0 25px rgba(0, 0, 255, 0.8);
+        }
+        .instructions {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="game-info">
+        <div>Health: <span id="health">100</span>%</div>
+        <div>Score: <span id="score">0</span></div>
+        <div>Level: <span id="level">1</span></div>
+    </div>
+
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+    <div class="instructions">
+        Use Mouse to Aim, Click to Fire Code Blaster. Protect the Server!
+    </div>
+
+    <div id="overlay">
+        <h2 id="overlay-title">SYSTEM COMPROMISED!</h2>
+        <p>Final Score: <span id="final-score">0</span></p>
+        <button onclick="startGame()">INITIATE RECOVERY PROTOCOL</button>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        const healthElement = document.getElementById('health');
+        const scoreElement = document.getElementById('score');
+        const levelElement = document.getElementById('level');
+        const overlay = document.getElementById('overlay');
+        const overlayTitle = document.getElementById('overlay-title');
+        const finalScoreElement = document.getElementById('final-score');
+
+        // Game settings
+        let gameRunning = false;
+        let playerHealth = 100;
+        let playerScore = 0;
+        let currentLevel = 1;
+        let bugSpawnRate = 1000; // milliseconds
+        let bugSpeed = 1; // pixels per frame
+
+        const bugs = [];
+        const bullets = [];
+        const serverHeight = 50; // Height of the server at the bottom
+        const playerSize = 40; // Size of the player (debugger)
+        const bulletSize = 10;
+        const bugSize = 30;
+
+        let lastBugSpawnTime = 0;
+        let animationFrameId;
+
+        // Player (debugger) position (fixed at bottom center)
+        const player = {
+            x: canvas.width / 2,
+            y: canvas.height - playerSize / 2 - serverHeight,
+            width: playerSize,
+            height: playerSize,
+            color: '#00f' // Blue debugger
+        };
+
+        // Mouse position for aiming
+        let mouseX = 0;
+
+        canvas.addEventListener('mousemove', (e) => {
+            mouseX = e.offsetX;
+        });
+
+        canvas.addEventListener('click', (e) => {
+            if (gameRunning) {
+                fireBullet();
+            } else if (overlay.style.display === 'flex') {
+                startGame(); // Start game from overlay if not running
+            }
+        });
+
+        function startGame() {
+            // Reset game state
+            playerHealth = 100;
+            playerScore = 0;
+            currentLevel = 1;
+            bugSpawnRate = 1000;
+            bugSpeed = 1;
+            bugs.length = 0; // Clear bugs array
+            bullets.length = 0; // Clear bullets array
+            lastBugSpawnTime = 0;
+
+            updateUI();
+            overlay.style.display = 'none'; // Hide overlay
+            gameRunning = true;
+
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId); // Stop any previous game loop
+            }
+            gameLoop();
+        }
+
+        function endGame(title) {
+            gameRunning = false;
+            overlayTitle.innerText = title;
+            finalScoreElement.innerText = playerScore;
+            overlay.style.display = 'flex';
+            cancelAnimationFrame(animationFrameId); // Stop the game loop
+        }
+
+        function updateUI() {
+            healthElement.innerText = playerHealth;
+            scoreElement.innerText = playerScore;
+            levelElement.innerText = currentLevel;
+        }
+
+        function createBug() {
+            const colors = ['#f00', '#0f0', '#ff0', '#0ff', '#f0f']; // Red, Green, Yellow, Cyan, Magenta bugs
+            return {
+                x: Math.random() * (canvas.width - bugSize),
+                y: -bugSize, // Start above the canvas
+                width: bugSize,
+                height: bugSize,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                health: 1 // Bugs have 1 health
+            };
+        }
+
+        function fireBullet() {
+            const bullet = {
+                x: player.x,
+                y: player.y,
+                width: bulletSize,
+                height: bulletSize * 2,
+                color: '#0ff' // Cyan laser
+            };
+            bullets.push(bullet);
+        }
+
+        function drawPlayer() {
+            ctx.fillStyle = player.color;
+            ctx.fillRect(player.x - player.width / 2, player.y - player.height / 2, player.width, player.height);
+
+            // Draw aiming line
+            ctx.strokeStyle = '#00f';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(player.x, player.y);
+            ctx.lineTo(mouseX, 0); // Aim towards the top of the screen
+            ctx.stroke();
+        }
+
+        function drawBugs() {
+            bugs.forEach(bug => {
+                ctx.fillStyle = bug.color;
+                ctx.fillRect(bug.x, bug.y, bug.width, bug.height);
+            });
+        }
+
+        function drawBullets() {
+            bullets.forEach(bullet => {
+                ctx.fillStyle = bullet.color;
+                ctx.fillRect(bullet.x - bullet.width / 2, bullet.y, bullet.width, bullet.height);
+            });
+        }
+
+        function drawServer() {
+            ctx.fillStyle = '#333'; // Dark grey server
+            ctx.fillRect(0, canvas.height - serverHeight, canvas.width, serverHeight);
+            ctx.strokeStyle = '#00f';
+            ctx.lineWidth = 3;
+            ctx.strokeRect(0, canvas.height - serverHeight, canvas.width, serverHeight); // Blue border for server
+            ctx.fillStyle = '#aaa';
+            ctx.font = '16px Consolas';
+            ctx.fillText('SERVER ONLINE', 10, canvas.height - serverHeight / 2 + 5);
+        }
+
+        function updateGame() {
+            const currentTime = Date.now();
+
+            // Spawn bugs
+            if (currentTime - lastBugSpawnTime > bugSpawnRate) {
+                bugs.push(createBug());
+                lastBugSpawnTime = currentTime;
+            }
+
+            // Move bugs
+            for (let i = bugs.length - 1; i >= 0; i--) {
+                bugs[i].y += bugSpeed + (currentLevel * 0.2); // Bugs get faster with level
+                // Check if bug hits server
+                if (bugs[i].y + bugs[i].height > canvas.height - serverHeight) {
+                    playerHealth -= 10; // Lose health
+                    bugs.splice(i, 1); // Remove bug
+                    updateUI();
+                    if (playerHealth <= 0) {
+                        endGame("SYSTEM CRITICAL ERROR!");
+                        return; // Stop updating if game over
+                    }
+                }
+            }
+
+            // Move bullets
+            for (let i = bullets.length - 1; i >= 0; i--) {
+                bullets[i].y -= 10; // Bullet speed
+                if (bullets[i].y < 0) {
+                    bullets.splice(i, 1); // Remove bullet if off screen
+                }
+            }
+
+            // Collision detection (bullets vs bugs)
+            for (let i = bullets.length - 1; i >= 0; i--) {
+                for (let j = bugs.length - 1; j >= 0; j--) {
+                    if (bullets[i].x < bugs[j].x + bugs[j].width &&
+                        bullets[i].x + bullets[i].width > bugs[j].x &&
+                        bullets[i].y < bugs[j].y + bugs[j].height &&
+                        bullets[i].y + bullets[i].height > bugs[j].y) {
+                        // Collision!
+                        playerScore += 10;
+                        bugs.splice(j, 1); // Remove bug
+                        bullets.splice(i, 1); // Remove bullet
+                        updateUI();
+
+                        // Level up logic
+                        if (playerScore >= currentLevel * 100) {
+                            currentLevel++;
+                            bugSpawnRate = Math.max(200, bugSpawnRate - 100); // Spawn faster
+                            bugSpeed += 0.5; // Bugs move faster
+                            updateUI();
+                            // Optional: Show a level up message
+                            // console.log("Level Up!");
+                        }
+                        break; // Only one bullet can hit one bug
+                    }
+                }
+            }
+
+            // Player aiming (update player.x to follow mouse)
+            player.x = mouseX;
+        }
+
+        function gameLoop() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
+
+            updateGame();
+
+            drawServer();
+            drawPlayer();
+            drawBugs();
+            drawBullets();
+
+            if (gameRunning) {
+                animationFrameId = requestAnimationFrame(gameLoop);
+            }
+        }
+
+        // Initial call to show overlay
+        endGame("IT BLASTER: BUG ANNIHILATION");
+    </script>
+</body>
+</html>

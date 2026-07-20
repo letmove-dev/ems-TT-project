@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>System Monitor v2.0 - Analysis</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #0f0;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        #game-container {
+            position: relative;
+            border: 2px solid #0f0;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+        }
+        canvas {
+            display: block;
+        }
+        .stats {
+            width: 400px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        .overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.85);
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #0f0;
+            display: none;
+        }
+        button {
+            background: #0f0;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stats">
+        <div>Status: <span style="color: #0f0;">Running...</span></div>
+        <div>Score: <span id="score">0</span></div>
+    </div>
+
+    <div id="game-container">
+        <canvas id="snakeGame" width="400" height="400"></canvas>
+        <div id="overlay" class="overlay">
+            <h2 id="status-text">SYSTEM CRASHED!</h2>
+            <p>Score: <span id="final-score">0</span></p>
+            <button onclick="resetGame()">REBOOT SYSTEM</button>
+        </div>
+    </div>
+
+    <p style="font-size: 12px; margin-top: 15px; color: #060;">[ Use Arrow Keys to Redirect Data Packets ]</p>
+
+    <script>
+        const canvas = document.getElementById("snakeGame");
+        const ctx = canvas.getContext("2d");
+        const scoreElement = document.getElementById("score");
+        const overlay = document.getElementById("overlay");
+        const finalScoreElement = document.getElementById("final-score");
+
+        const box = 20;
+        let score = 0;
+        let gameSpeed = 100;
+        let snake = [{x: 9 * box, y: 10 * box}];
+        let food = {
+            x: Math.floor(Math.random() * 19 + 1) * box,
+            y: Math.floor(Math.random() * 19 + 1) * box
+        };
+        let d;
+
+        document.addEventListener("keydown", direction);
+
+        function direction(event) {
+            if(event.keyCode == 37 && d != "RIGHT") d = "LEFT";
+            else if(event.keyCode == 38 && d != "DOWN") d = "UP";
+            else if(event.keyCode == 39 && d != "LEFT") d = "RIGHT";
+            else if(event.keyCode == 40 && d != "UP") d = "DOWN";
+        }
+
+        function collision(head, array) {
+            for(let i = 0; i < array.length; i++) {
+                if(head.x == array[i].x && head.y == array[i].y) return true;
+            }
+            return false;
+        }
+
+        function draw() {
+            ctx.fillStyle = "black";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw Snake
+            for(let i = 0; i < snake.length; i++) {
+                ctx.fillStyle = (i == 0) ? "#0f0" : "#050"; // Head is brighter
+                ctx.fillRect(snake[i].x, snake[i].y, box, box);
+                ctx.strokeStyle = "black";
+                ctx.strokeRect(snake[i].x, snake[i].y, box, box);
+            }
+
+            // Draw Food (Data Packet)
+            ctx.fillStyle = "red";
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = "red";
+            ctx.fillRect(food.x, food.y, box, box);
+            ctx.shadowBlur = 0;
+
+            let snakeX = snake[0].x;
+            let snakeY = snake[0].y;
+
+            if( d == "LEFT") snakeX -= box;
+            if( d == "UP") snakeY -= box;
+            if( d == "RIGHT") snakeX += box;
+            if( d == "DOWN") snakeY += box;
+
+            // Check Eating
+            if(snakeX == food.x && snakeY == food.y) {
+                score++;
+                scoreElement.innerHTML = score;
+                food = {
+                    x: Math.floor(Math.random() * 19 + 1) * box,
+                    y: Math.floor(Math.random() * 19 + 1) * box
+                };
+            } else {
+                snake.pop();
+            }
+
+            let newHead = { x: snakeX, y: snakeY };
+
+            // Game Over conditions
+            if(snakeX < 0 || snakeX >= canvas.width || snakeY < 0 || snakeY >= canvas.height || collision(newHead, snake)) {
+                clearInterval(game);
+                finalScoreElement.innerText = score;
+                overlay.style.display = "block";
+            }
+
+            snake.unshift(newHead);
+        }
+
+        function resetGame() {
+            snake = [{x: 9 * box, y: 10 * box}];
+            d = null;
+            score = 0;
+            scoreElement.innerHTML = score;
+            overlay.style.display = "none";
+            game = setInterval(draw, gameSpeed);
+        }
+
+        let game = setInterval(draw, gameSpeed);
+    </script>
+</body>
+</html>

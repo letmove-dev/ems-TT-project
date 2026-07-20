@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ประวัติการสุ่มเลข</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Prompt', sans-serif; }</style>
+</head>
+<body class="bg-gray-100 min-h-screen p-4">
+    <div class="max-w-md mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
+        
+        <div class="bg-gradient-to-r from-blue-600 to-indigo-600 p-6 text-white text-center">
+            <h1 class="text-xl font-bold mb-4">สรุปข้อมูลการสุ่ม 📊</h1>
+           <div class="absolute top-4 right-4">
+                <a href="javascript:history.back()" class="bg-gray-800 hover:bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md transition duration-200">
+                     ← กลับไปหน้าสุ่มเลข
+                  </a>
+                </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-white/20 rounded-lg p-2">
+                    <p class="text-xs opacity-80">สุ่มทั้งหมด</p>
+                    <p id="totalSpins" class="text-2xl font-bold">0</p>
+                </div>
+                <div class="bg-white/20 rounded-lg p-2">
+                    <p class="text-xs opacity-80">เลขนำโชค</p>
+                    <p id="topNumber" class="text-2xl font-bold">-</p>
+                </div>
+               
+            </div>
+        </div>
+
+        <div class="p-6">
+            <h2 class="text-gray-800 font-semibold mb-4 flex justify-between">
+                <span>รายการล่าสุด 📜</span>
+                <button onclick="clearHistory()" class="text-red-500 text-sm hover:underline">ล้างทั้งหมด</button>
+            </h2>
+            
+            <div id="historyDisplay" class="space-y-3 max-h-96 overflow-y-auto pr-1">
+                </div>
+             <div class="mt-8 border-t pt-6">
+                    <p class="text-center text-xs text-gray-400">ข้อมูลถูกบันทึกไว้ในเครื่องของคุณ</p>
+                </div>
+            
+    </div>
+
+    <script>
+        function showHistory() {
+            // ดึงข้อมูล (ตรวจสอบชื่อ Key ให้ตรงกับหน้าสุ่มของคุณ เช่น 'myHistory')
+            const history = JSON.parse(localStorage.getItem('myHistory')) || [];
+            const container = document.getElementById('historyDisplay');
+            
+            // อัปเดตตัวเลขสถิติ
+            document.getElementById('totalSpins').innerText = history.length;
+            
+            if (history.length === 0) {
+                container.innerHTML = `<p class="text-center text-gray-400 py-10">ยังไม่มีประวัติ</p>`;
+                document.getElementById('topNumber').innerText = "-";
+                return;
+            }
+
+            // คำนวณหาเลขที่ออกบ่อยที่สุด
+            const freq = {};
+            history.forEach(item => {
+                // รองรับทั้ง item.numbers (array) และ item.number (เดี่ยว)
+                const nums = Array.isArray(item.numbers) ? item.numbers : [item.number];
+                nums.forEach(n => { freq[n] = (freq[n] || 0) + 1; });
+            });
+            const top = Object.keys(freq).reduce((a, b) => freq[a] > freq[b] ? a : b);
+            document.getElementById('topNumber').innerText = top;
+
+            // แสดงรายการ (เรียงใหม่สุดขึ้นก่อน)
+            container.innerHTML = history.slice().reverse().map(item => {
+                const displayNums = Array.isArray(item.numbers) ? item.numbers.join(', ') : item.number;
+                return `
+                    <div class="bg-gray-50 border border-gray-100 p-3 rounded-xl">
+                        <div class="text-[10px] text-gray-400 mb-1">${item.time || 'ไม่ระบุเวลา'}</div>
+                        <div class="text-lg font-bold text-blue-600">${displayNums}</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function clearHistory() {
+            if(confirm('ยืนยันลบประวัติทั้งหมด?')) {
+                localStorage.removeItem('myHistory');
+                showHistory();
+            }
+        }
+
+        // เริ่มทำงาน
+        showHistory();
+    </script>
+</body>
+</html>

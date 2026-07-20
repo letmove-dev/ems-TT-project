@@ -1,0 +1,1297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Zebra Link-OS&reg; Open Source Software Notices&trade;</title>
+
+    <style type="text/css">
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .clearfix:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .reg {
+            vertical-align: top;
+            font-size: 0.5em;
+        }
+
+        .link-os-text {
+            white-space: nowrap;
+        }
+
+        /* Main header */
+
+        #landingPageHeaderContainer {
+            background-color: black;
+            color: white;
+        }
+
+        #landingPageHeader {
+            transition: all 0.2s linear;
+            display: block;
+            max-width: 900px;
+            position: relative;
+            margin: 0 auto;
+            height: 240px;
+        }
+
+        #zebraLogo {
+            transition: all 0.2s linear;
+            display: block;
+            height: 120px;
+            width: 86px;
+            position: absolute;
+            top: 60px;
+            left: 60px;
+        }
+
+        #landingPageHeaderTextContainer {
+            transition: all 0.2s linear;
+            padding-left: 175px;
+            padding-right: 60px;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .header-text {
+            display: block;
+        }
+
+        #headerLinkOsText {
+            transition: all 0.2s linear;
+            color: #ffcc33;
+            font-size: 2.5em;
+            font-weight: 100;
+            letter-spacing: 4px;
+        }
+
+        #headerSubhHeaderText {
+            transition: all 0.2s linear;
+            font-size: 1.5em;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        /* Landing page overview */
+        
+        #mainContentContainer {
+            background-color: #ddd;
+            padding: 30px 0;
+        }
+
+        #landingPageOverviewContainer {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        #landingPageOverview {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+            padding: 30px;
+            color: #555;
+            font-weight: 300;
+            position: relative;
+        }
+
+        #landingPageOverviewDescriptionContainer {
+            float: left;
+            width: 100%;
+            height: 100%;
+            font-size: 0.8em;
+            line-height: 1.5em;
+        }
+
+        #landingPageOverviewZipContainer {
+            float: left;
+            width: 50%;
+            height: 100%;
+            padding-left: 30px;
+            border-left: 1px solid #ddd;
+            font-size: 0.8em;
+        }
+
+        .softwareLicenseItemContainer {
+            border-top: 1px dotted #bbb;
+            width: 100%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        #zipIcon {
+            width: 3em;
+            height: 3em;
+            display: block;
+            float: left;
+        }
+
+        #landingPageOverviewZipDescription {
+            display: table-cell;
+            vertical-align: middle;
+            width: auto;
+            overflow: hidden;
+            padding-left: 15px;
+            height: 3em;
+        }
+
+        #landingPageOverviewList {
+            font-weight: 500;
+        }
+
+        #landingPageTermsNote {
+            font-size: 0.9em;
+            font-style: italic;
+        }
+
+        /* Main footer */
+
+        #landingPageFooter {
+            display: block;
+            color: #aaa;
+            text-align: center;
+            padding-top: 15px;
+            padding-bottom: 30px;
+        }
+
+        #landingPageFooterText {
+            font-size: 0.7em;
+        }
+
+        /* Media queries */
+        @media (max-width: 500px) {
+            #landingPageHeader {
+                height: 160px;
+            }
+
+            #zebraLogo {
+                top: 20px;
+                left: 40px;
+            }
+
+            #landingPageHeaderTextContainer {
+                padding-left: 145px;
+            }
+
+            #headerSubhHeaderText {
+                font-size: 1.1em;
+            }
+
+            #headerLinkOsText {
+                font-size: 1.5em;
+            }
+
+            .section-link-grid-container {
+                width: 100%;
+            }
+
+            #landingPageOverviewDescriptionContainer {
+                width: 100%;
+                padding: 0 0 30px;
+            }
+
+            #landingPageOverviewZipContainer {
+                border: 0;
+                padding: 30px 0 0;
+                width: 100%;
+                position: relative;
+            }
+
+            #landingPageOverviewZipContainer:before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 25%;
+                right: 25%;
+                border-top: 1px solid #ddd;
+            }
+        }
+        
+        .span_pre {
+            display: block;
+            unicode-bidi: embed;
+            font-family: monospace;
+            white-space: pre;
+            font-size: 1.1em;
+        }
+        
+        .licenseHeader {
+            transition: all 0.2s linear;
+            font-size: 1.5em;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        
+        .listHeader {
+            padding-bottom: 10px;
+            transition: all 0.2s linear;
+            font-size: 1.5em;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div id="landingPageHeaderContainer">
+        <header id="landingPageHeader">
+            <?xml version="1.0" encoding="utf-8"?>
+            <!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+            <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+            <svg version="1.1" id="zebraLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68.74 110"><defs><style>.a{fill:#fff;}</style></defs><title>zebra-logo-white</title><polygon class="a" points="50.93 39.44 45.52 34.03 45.52 49.32 50.93 49.32 50.93 39.44"/><path class="a" d="M58.95,31.16H72.1l-5.38-5.38,0,0H59.78A8.9,8.9,0,0,0,58.95,8V25.78h0L44.16,11q-1.17.61-2.28,1.33a27.07,27.07,0,0,0-2.33,1.71L53.55,28v30.6l10.8,10.8V61.79l-5.4-5.4V31.16Z" transform="translate(-29.63 -8)"/><polygon class="a" points="34.72 23.19 34.69 49.28 40.09 49.28 40.12 28.62 34.72 23.19"/><polygon class="a" points="53.26 34.03 47.85 28.63 40.12 28.63 45.52 34.03 53.26 34.03"/><path class="a" d="M48.14,53.54V53.22h0V30.3L35.73,17.89a27,27,0,0,0-3,4.6l10,10v7.64h0L30.55,28a26.88,26.88,0,0,0-.92,6.72S47.54,52.91,48.14,53.54" transform="translate(-29.63 -8)"/><polygon class="a" points="0.09 34.43 0.09 42.07 34.72 76.7 34.72 69.06 0.09 34.43"/><path class="a" d="M91.36,50.49H86v6.83h-5.4a8.9,8.9,0,1,0,17.79,0Z" transform="translate(-29.63 -8)"/><polygon class="a" points="12.68 106.71 10.83 110 0.04 110 7.04 96.55 0.84 96.55 2.57 93.27 13.33 93.27 6.33 106.71 12.68 106.71"/><polygon class="a" points="18.78 99.97 24.3 99.97 24.3 103.25 18.78 103.25 18.78 106.71 24.3 106.71 24.3 110 14.72 110 14.72 93.27 24.3 93.27 24.3 96.55 18.78 96.55 18.78 99.97"/><path class="a" d="M61.46,101.27c2.13,0,3.36.23,4.27,0.8a4.3,4.3,0,0,1,1.86,3.74,4,4,0,0,1-1.13,2.91,3.22,3.22,0,0,1-1.76,1,3.59,3.59,0,0,1,2,1,3.79,3.79,0,0,1,1.13,2.91,4.34,4.34,0,0,1-1.71,3.66,6,6,0,0,1-3.54.78H55.74V101.27h5.72Zm-1.66,6.92h1c1.86,0,2.63-.58,2.63-2s-0.78-1.93-2.69-1.93h-1v3.89Zm0,6.9h1.48c1.71,0,2.43-.58,2.43-1.93a1.78,1.78,0,0,0-.9-1.71,3.92,3.92,0,0,0-2.08-.3H59.8v3.94Z" transform="translate(-29.63 -8)"/><path class="a" d="M73.66,118H69.59V101.27H75a7.89,7.89,0,0,1,4.92,1.25,5.22,5.22,0,0,1,1.81,4.24,4.94,4.94,0,0,1-3.24,5.09L82.19,118H77.32l-3.66-6.47V118Zm1.3-8.76c1.66,0,2.66-.85,2.66-2.31a2.26,2.26,0,0,0-2.41-2.33H73.66v4.64H75Z" transform="translate(-29.63 -8)"/><path class="a" d="M92.88,101.27H87.71L82.19,118h4.29l1-3.25h5.45L94,118h4.41Zm-4.35,10.2,1.69-5.4,1.69,5.4H88.52Z" transform="translate(-29.63 -8)"/></svg>
+            <div id="landingPageHeaderTextContainer">
+                <span id="headerLinkOsText" class="header-text">Zebra Designer 
+				Driver</span>
+                <span id="headerSubhHeaderText" class="header-text">Open Source Software Notices</span>
+            </div>
+        </header>
+    </div>
+    <div id="mainContentContainer" class="clearfix">
+        <div id="landingPageOverviewContainer">
+            <div id="landingPageOverview" class="clearfix">
+                <div id="landingPageOverviewDescriptionContainer">
+                    The object code or source code (collectively, the "Software") included with the Product is the exclusive property of Zebra or its licensors, and any use is subject to the terms and conditions of one or more agreements in force between the purchaser of the Zebra Product or licensee of the Software and Zebra.  SOFTWARE IS PROTECTED BY U.S. COPYRIGHT LAWS AND INTERNATIONAL LAWS AND TREATIES. UNAUTHORIZED COPYING, DISTRIBUTION OR OTHER USE OFTHIS PRODUCT IS STRICTLY PROHIBITED. ANY DISTRIBUTION OR USE NOT SPECIFICALLY APPROVED BY ZEBRA IS STRICTLY PROHIBITED.
+                    <br/><br/>
+                    Zebra Software is subject to the commercial terms and conditions entered into with Zebra, any other use is strictly prohibited.  Commercial Software licensed for redistribution by Zebra ("Third Party Software") is subject to the terms and conditions in force between Zebra and the licensor of the Third party Software.  The terms and conditions governing the usage of Third Party Software may be part of the agreement entered into by the purchaser of the Product with Zebra or separate Third Party Software license agreement(s) included with the Product.
+                    <br/><br/>
+                    Software provided by Zebra which is covered by a publicly available license governed solely under Copyright law, whereas the complete terms and obligations of such license attach to a licensee solely through the act of copying, using and/or distribution of the licensed Software, such obligations often include one or more of attribution obligations, distribution obligations, copyleft obligations, and intellectual property encumbrances is referred to herein as "Open Source Software".  The use of any Open Source Software is subject to the licenses, terms and conditions of the commercial agreement in force between the purchaser of the Product and Zebra as well as the terms and conditions of the corresponding license of each Open Source Software package. If there is a conflict between the terms and conditions of any commercial agreement and the terms and conditions of the Open Source Software license, the applicable Open Source Software license will take precedence. Copies of the licenses for the included Open Source Software as well as their attributions, acknowledgements, and software information details, are listed below. Zebra is required to reproduce the software licenses, acknowledgements and copyright notices as provided by the authors and owners, thus, all such information is provided in its native language form, without modification or translation.
+                    <br/><br/>
+                    For instructions on how to obtain a copy of any source code made publicly available by Zebra related to Open Source Software distributed by Zebra, you may send your request in writing to: 
+                    <br/><br/>
+                    Zebra Technologies Corporation
+                    Open Source Software Director
+                    Legal Department
+                    3 Overlook Point
+                    Lincolnshire, IL  60069 USA
+                    <br/><br/>
+                    In your request, please include the Zebra Product name and version, along with the Open Source Software specifics, such as the Open Source Software name and version.
+                    <br/><br/>
+                    Note: The source code for the Open Source Software included by Zebra may be resident on the Product's installation media provided with the Product or on supplemental Product media. Please reference and review the entire Zebra Open Source Software "Legal Notices" and any corresponding "End User License Agreement" provided with the Product or the commercial agreement under which the Product was purchased for details on the availability, location and method for obtaining source code. Further, depending on the license terms of the specific Open Source Software, source code may not be provided. Please reference and review the entire Zebra Open Source Software "Legal Notices" and "End User License Agreement" to identify which Open Source Software packages have source code provided or available.
+                    <br/><br/>
+                    To view information regarding licenses, acknowledgements and required copyright notices for Open Source Software used in this Product, please select "Legal Notices" from the graphical user interface of the Software (if applicable) or as specified in the "Legal Notices" or End User License Agreement File/README associated with the Product.  Use of any Software is subject to acceptance of the corresponding terms associated with the Software and by using the Software you agree you have reviewed the terms and agreed to be bound by said terms.
+                    <br/><br/>
+                    &copy;2018 ZIH Corp and/or its affiliates. All rights reserved. Zebra and the stylized Zebra head are trademarks of ZIH Corp., registered in many jurisdictions worldwide. All other trademarks are the property of their respective owners
+
+                    <br/>
+                    <br/>
+                    <br/>
+                    <span class="listHeader">PUBLICLY AVAILABLE SOFTWARE LIST</span>
+
+                    <br/>
+                    <br/>
+                    
+                    
+                    <div class="softwareLicenseItemContainer">
+                    <a href="">System.Data.SQLite 
+						(http://system.data.sqlite.org)<br />
+						<br />
+						License:<br />
+						<br />
+						This is free and unencumbered software released into the 
+						public domain.<br />
+						<br />
+						Anyone is free to copy, modify, publish, use, compile, 
+						sell, or distribute this software, either in source code 
+						form or as a compiled binary, for any purpose, 
+						commercial or non-commercial, and by any means.<br />
+						<br />
+						In jurisdictions that recognize copyright laws, the 
+						author or authors of this software dedicate any and all 
+						copyright interest in the software to the public domain. 
+						We make this dedication for the benefit of the public at 
+						large and to the detriment of our heirs and successors. 
+						We intend this dedication to be an overt act of 
+						relinquishment in perpetuity of all present and future 
+						rights to this software under copyright law.<br />
+						<br />
+						THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF 
+						ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED 
+						TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
+						PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT 
+						SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR 
+						OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT 
+						OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH 
+						THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
+						SOFTWARE.<br />
+						<br />
+						For more information, please refer to 
+						&lt;http://unlicense.org/&gt;</a></div>
+                    
+                    <div class="softwareLicenseItemContainer">
+                    	Dapper.StrongName.dll 
+						(https://github.com/StackExchange/dapper-dot-net) is 
+						provided under Apache license 2.0<br />
+						<br />
+						Copyright: Copyright © Sam Saffron 2011<br />
+						<br />
+						License:<br />
+						<br />
+						Apache License 2.0 (Apache)<br />
+						Apache License<br />
+						Version 2.0, January 2004<br />
+						http://www.apache.org/licenses/<br />
+						<br />
+						TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND 
+						DISTRIBUTION<br />
+						<br />
+						1. Definitions.<br />
+						<br />
+						&quot;License&quot; shall mean the terms and conditions for use, 
+						reproduction, and distribution as defined by Sections 1 
+						through 9 of this document.<br />
+						<br />
+						&quot;Licensor&quot; shall mean the copyright owner or entity 
+						authorized by the copyright owner that is granting the 
+						License.<br />
+						<br />
+						&quot;Legal Entity&quot; shall mean the union of the acting entity 
+						and all other entities that control, are controlled by, 
+						or are under common control with that entity. For the 
+						purposes of this definition, &quot;control&quot; means (i) the 
+						power, direct or indirect, to cause the direction or 
+						management of such entity, whether by contract or 
+						otherwise, or (ii) ownership of fifty percent (50%) or 
+						more of the outstanding shares, or (iii) beneficial 
+						ownership of such entity.<br />
+						<br />
+						&quot;You&quot; (or &quot;Your&quot;) shall mean an individual or Legal 
+						Entity exercising permissions granted by this License.<br />
+						<br />
+						&quot;Source&quot; form shall mean the preferred form for making 
+						modifications, including but not limited to software 
+						source code, documentation source, and configuration 
+						files.<br />
+						<br />
+						&quot;Object&quot; form shall mean any form resulting from 
+						mechanical transformation or translation of a Source 
+						form, including but not limited to compiled object code, 
+						generated documentation, and conversions to other media 
+						types.<br />
+						<br />
+						&quot;Work&quot; shall mean the work of authorship, whether in 
+						Source or Object form, made available under the License, 
+						as indicated by a copyright notice that is included in 
+						or attached to the work (an example is provided in the 
+						Appendix below).<br />
+						<br />
+						&quot;Derivative Works&quot; shall mean any work, whether in 
+						Source or Object form, that is based on (or derived 
+						from) the Work and for which the editorial revisions, 
+						annotations, elaborations, or other modifications 
+						represent, as a whole, an original work of authorship. 
+						For the purposes of this License, Derivative Works shall 
+						not include works that remain separable from, or merely 
+						link (or bind by name) to the interfaces of, the Work 
+						and Derivative Works thereof.<br />
+						<br />
+						&quot;Contribution&quot; shall mean any work of authorship, 
+						including the original version of the Work and any 
+						modifications or additions to that Work or Derivative 
+						Works thereof, that is intentionally submitted to 
+						Licensor for inclusion in the Work by the copyright 
+						owner or by an individual or Legal Entity authorized to 
+						submit on behalf of the copyright owner. For the 
+						purposes of this definition, &quot;submitted&quot; means any form 
+						of electronic, verbal, or written communication sent to 
+						the Licensor or its representatives, including but not 
+						limited to communication on electronic mailing lists, 
+						source code control systems, and issue tracking systems 
+						that are managed by, or on behalf of, the Licensor for 
+						the purpose of discussing and improving the Work, but 
+						excluding communication that is conspicuously marked or 
+						otherwise designated in writing by the copyright owner 
+						as &quot;Not a Contribution.&quot;<br />
+						<br />
+						&quot;Contributor&quot; shall mean Licensor and any individual or 
+						Legal Entity on behalf of whom a Contribution has been 
+						received by Licensor and subsequently incorporated 
+						within the Work.<br />
+						<br />
+						2. Grant of Copyright License.<br />
+						<br />
+						Subject to the terms and conditions of this License, 
+						each Contributor hereby grants to You a perpetual, 
+						worldwide, non-exclusive, no-charge, royalty-free, 
+						irrevocable copyright license to reproduce, prepare 
+						Derivative Works of, publicly display, publicly perform, 
+						sublicense, and distribute the Work and such Derivative 
+						Works in Source or Object form.<br />
+						<br />
+						3. Grant of Patent License.<br />
+						<br />
+						Subject to the terms and conditions of this License, 
+						each Contributor hereby grants to You a perpetual, 
+						worldwide, non-exclusive, no-charge, royalty-free, 
+						irrevocable (except as stated in this section) patent 
+						license to make, have made, use, offer to sell, sell, 
+						import, and otherwise transfer the Work, where such 
+						license applies only to those patent claims licensable 
+						by such Contributor that are necessarily infringed by 
+						their Contribution(s) alone or by combination of their 
+						Contribution(s) with the Work to which such 
+						Contribution(s) was submitted. If You institute patent 
+						litigation against any entity (including a cross-claim 
+						or counterclaim in a lawsuit) alleging that the Work or 
+						a Contribution incorporated within the Work constitutes 
+						direct or contributory patent infringement, then any 
+						patent licenses granted to You under this License for 
+						that Work shall terminate as of the date such litigation 
+						is filed.<br />
+						<br />
+						4. Redistribution.<br />
+						<br />
+						You may reproduce and distribute copies of the Work or 
+						Derivative Works thereof in any medium, with or without 
+						modifications, and in Source or Object form, provided 
+						that You meet the following conditions:<br />
+						<br />
+						1. You must give any other recipients of the Work or 
+						Derivative Works a copy of this License; and<br />
+						<br />
+						2. You must cause any modified files to carry prominent 
+						notices stating that You changed the files; and<br />
+						<br />
+						3. You must retain, in the Source form of any Derivative 
+						Works that You distribute, all copyright, patent, 
+						trademark, and attribution notices from the Source form 
+						of the Work, excluding those notices that do not pertain 
+						to any part of the Derivative Works; and<br />
+						<br />
+						4. If the Work includes a &quot;NOTICE&quot; text file as part of 
+						its distribution, then any Derivative Works that You 
+						distribute must include a readable copy of the 
+						attribution notices contained within such NOTICE file, 
+						excluding those notices that do not pertain to any part 
+						of the Derivative Works, in at least one of the 
+						following places: within a NOTICE text file distributed 
+						as part of the Derivative Works; within the Source form 
+						or documentation, if provided along with the Derivative 
+						Works; or, within a display generated by the Derivative 
+						Works, if and wherever such third-party notices normally 
+						appear. The contents of the NOTICE file are for 
+						informational purposes only and do not modify the 
+						License. You may add Your own attribution notices within 
+						Derivative Works that You distribute, alongside or as an 
+						addendum to the NOTICE text from the Work, provided that 
+						such additional attribution notices cannot be construed 
+						as modifying the License.<br />
+						<br />
+						You may add Your own copyright statement to Your 
+						modifications and may provide additional or different 
+						license terms and conditions for use, reproduction, or 
+						distribution of Your modifications, or for any such 
+						Derivative Works as a whole, provided Your use, 
+						reproduction, and distribution of the Work otherwise 
+						complies with the conditions stated in this License.<br />
+						<br />
+						5. Submission of Contributions.<br />
+						<br />
+						Unless You explicitly state otherwise, any Contribution 
+						intentionally submitted for inclusion in the Work by You 
+						to the Licensor shall be under the terms and conditions 
+						of this License, without any additional terms or 
+						conditions. Notwithstanding the above, nothing herein 
+						shall supersede or modify the terms of any separate 
+						license agreement you may have executed with Licensor 
+						regarding such Contributions.<br />
+						<br />
+						6. Trademarks.<br />
+						<br />
+						This License does not grant permission to use the trade 
+						names, trademarks, service marks, or product names of 
+						the Licensor, except as required for reasonable and 
+						customary use in describing the origin of the Work and 
+						reproducing the content of the NOTICE file.<br />
+						<br />
+						7. Disclaimer of Warranty.<br />
+						<br />
+						Unless required by applicable law or agreed to in 
+						writing, Licensor provides the Work (and each 
+						Contributor provides its Contributions) on an &quot;AS IS&quot; 
+						BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, 
+						either express or implied, including, without 
+						limitation, any warranties or conditions of TITLE, 
+						NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A 
+						PARTICULAR PURPOSE. You are solely responsible for 
+						determining the appropriateness of using or 
+						redistributing the Work and assume any risks associated 
+						with Your exercise of permissions under this License.<br />
+						<br />
+						8. Limitation of Liability.<br />
+						<br />
+						In no event and under no legal theory, whether in tort 
+						(including negligence), contract, or otherwise, unless 
+						required by applicable law (such as deliberate and 
+						grossly negligent acts) or agreed to in writing, shall 
+						any Contributor be liable to You for damages, including 
+						any direct, indirect, special, incidental, or 
+						consequential damages of any character arising as a 
+						result of this License or out of the use or inability to 
+						use the Work (including but not limited to damages for 
+						loss of goodwill, work stoppage, computer failure or 
+						malfunction, or any and all other commercial damages or 
+						losses), even if such Contributor has been advised of 
+						the possibility of such damages.<br />
+						<br />
+						9. Accepting Warranty or Additional Liability.<br />
+						<br />
+						While redistributing the Work or Derivative Works 
+						thereof, You may choose to offer, and charge a fee for, 
+						acceptance of support, warranty, indemnity, or other 
+						liability obligations and/or rights consistent with this 
+						License. However, in accepting such obligations, You may 
+						act only on Your own behalf and on Your sole 
+						responsibility, not on behalf of any other Contributor, 
+						and only if You agree to indemnify, defend, and hold 
+						each Contributor harmless for any liability incurred by, 
+						or claims asserted against, such Contributor by reason 
+						of your accepting any such warranty or additional 
+						liability.<br />
+                    </div>
+                    
+                    <div class="softwareLicenseItemContainer">
+                    	Ionic.Zip.dll (http://dotnetzip.codeplex.com) is 
+						provided under Microsoft Public License (Ms-PL)<br />
+						<br />
+						Copyright (c) 2006 - 2011 Dino Chiesa <br />
+						Copyright (c) 2006, 2007, 2008, 2009 Dino Chiesa and 
+						Microsoft Corporation.<br />
+						<br />
+						License: <br />
+						<br />
+						Microsoft Public License (Ms-PL)<br />
+						<br />
+						This license governs use of the accompanying software. 
+						If you use the software, you accept this license. If you 
+						do not accept the license, do not use the software.<br />
+						<br />
+						1. Definitions<br />
+						<br />
+						The terms &quot;reproduce,&quot; &quot;reproduction,&quot; &quot;derivative 
+						works,&quot; and &quot;distribution&quot; have the same meaning here as 
+						under U.S. copyright law.<br />
+						<br />
+						A &quot;contribution&quot; is the original software, or any 
+						additions or changes to the software.<br />
+						<br />
+						A &quot;contributor&quot; is any person that distributes its 
+						contribution under this license.<br />
+						<br />
+						&quot;Licensed patents&quot; are a contributor&#39;s patent claims 
+						that read directly on its contribution.<br />
+						<br />
+						2. Grant of Rights<br />
+						<br />
+						(A) Copyright Grant- Subject to the terms of this 
+						license, including the license conditions and 
+						limitations in section 3, each contributor grants you a 
+						non-exclusive, worldwide, royalty-free copyright license 
+						to reproduce its contribution, prepare derivative works 
+						of its contribution, and distribute its contribution or 
+						any derivative works that you create.<br />
+						<br />
+						(B) Patent Grant- Subject to the terms of this license, 
+						including the license conditions and limitations in 
+						section 3, each contributor grants you a non-exclusive, 
+						worldwide, royalty-free license under its licensed 
+						patents to make, have made, use, sell, offer for sale, 
+						import, and/or otherwise dispose of its contribution in 
+						the software or derivative works of the contribution in 
+						the software.<br />
+						<br />
+						3. Conditions and Limitations<br />
+						<br />
+						(A) No Trademark License- This license does not grant 
+						you rights to use any contributors&#39; name, logo, or 
+						trademarks.<br />
+						<br />
+						(B) If you bring a patent claim against any contributor 
+						over patents that you claim are infringed by the 
+						software, your patent license from such contributor to 
+						the software ends automatically.<br />
+						<br />
+						(C) If you distribute any portion of the software, you 
+						must retain all copyright, patent, trademark, and 
+						attribution notices that are present in the software.<br />
+						<br />
+						(D) If you distribute any portion of the software in 
+						source code form, you may do so only under this license 
+						by including a complete copy of this license with your 
+						distribution. If you distribute any portion of the 
+						software in compiled or object code form, you may only 
+						do so under a license that complies with this license.<br />
+						<br />
+						(E) The software is licensed &quot;as-is.&quot; You bear the risk 
+						of using it. The contributors give no express 
+						warranties, guarantees or conditions. You may have 
+						additional consumer rights under your local laws which 
+						this license cannot change. To the extent permitted 
+						under your local laws, the contributors exclude the 
+						implied warranties of merchantability, fitness for a 
+						particular purpose and non-infringement.<br />
+                    </div>
+                    
+                    <div class="softwareLicenseItemContainer">
+                    	Extended WPF Toolkit Community Edition 
+						(http://wpftoolkit.codeplex.com) is provided under 
+						Microsoft Public License (Ms-PL)<br />
+						<br />
+						Copyright © Xceed Software Inc. 2010-2012<br />
+						<br />
+						License: <br />
+						<br />
+						Microsoft Public License (Ms-PL)<br />
+						<br />
+						This license governs use of the accompanying software. 
+						If you use the software, you accept this license. If you 
+						do not accept the license, do not use the software.<br />
+						<br />
+						1. Definitions<br />
+						<br />
+						The terms &quot;reproduce,&quot; &quot;reproduction,&quot; &quot;derivative 
+						works,&quot; and &quot;distribution&quot; have the same meaning here as 
+						under U.S. copyright law.<br />
+						<br />
+						A &quot;contribution&quot; is the original software, or any 
+						additions or changes to the software.<br />
+						<br />
+						A &quot;contributor&quot; is any person that distributes its 
+						contribution under this license.<br />
+						<br />
+						&quot;Licensed patents&quot; are a contributor&#39;s patent claims 
+						that read directly on its contribution.<br />
+						<br />
+						2. Grant of Rights<br />
+						<br />
+						(A) Copyright Grant- Subject to the terms of this 
+						license, including the license conditions and 
+						limitations in section 3, each contributor grants you a 
+						non-exclusive, worldwide, royalty-free copyright license 
+						to reproduce its contribution, prepare derivative works 
+						of its contribution, and distribute its contribution or 
+						any derivative works that you create.<br />
+						<br />
+						(B) Patent Grant- Subject to the terms of this license, 
+						including the license conditions and limitations in 
+						section 3, each contributor grants you a non-exclusive, 
+						worldwide, royalty-free license under its licensed 
+						patents to make, have made, use, sell, offer for sale, 
+						import, and/or otherwise dispose of its contribution in 
+						the software or derivative works of the contribution in 
+						the software.<br />
+						<br />
+						3. Conditions and Limitations<br />
+						<br />
+						(A) No Trademark License- This license does not grant 
+						you rights to use any contributors&#39; name, logo, or 
+						trademarks.<br />
+						<br />
+						(B) If you bring a patent claim against any contributor 
+						over patents that you claim are infringed by the 
+						software, your patent license from such contributor to 
+						the software ends automatically.<br />
+						<br />
+						(C) If you distribute any portion of the software, you 
+						must retain all copyright, patent, trademark, and 
+						attribution notices that are present in the software.<br />
+						<br />
+						(D) If you distribute any portion of the software in 
+						source code form, you may do so only under this license 
+						by including a complete copy of this license with your 
+						distribution. If you distribute any portion of the 
+						software in compiled or object code form, you may only 
+						do so under a license that complies with this license.<br />
+						<br />
+						(E) The software is licensed &quot;as-is.&quot; You bear the risk 
+						of using it. The contributors give no express 
+						warranties, guarantees or conditions. You may have 
+						additional consumer rights under your local laws which 
+						this license cannot change. To the extent permitted 
+						under your local laws, the contributors exclude the 
+						implied warranties of merchantability, fitness for a 
+						particular purpose and non-infringement.<br />
+                    </div>
+                    
+                    AvalonEdit (http://avalonedit.net) is provided under MIT 
+					License<br />
+					<br />
+					Copyright (c) 2014 AlphaSierraPapa for the SharpDevelop Team<br />
+					<br />
+					License:<br />
+					<br />
+					The MIT License (MIT)<br />
+					<br />
+					Permission is hereby granted, free of charge, to any person 
+					obtaining a copy of this software and associated 
+					documentation files (the &quot;Software&quot;), to deal in the 
+					Software without restriction, including without limitation 
+					the rights to use, copy, modify, merge, publish, distribute, 
+					sublicense, and/or sell copies of the Software, and to 
+					permit persons to whom the Software is furnished to do so, 
+					subject to the following conditions:<br />
+					<br />
+					The above copyright notice and this permission notice shall 
+					be included in all copies or substantial portions of the 
+					Software.<br />
+					<br />
+					THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY 
+					KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE 
+					WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
+					PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS 
+					OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR 
+					OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
+					OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+					SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.<br />
+                    
+                    <div class="softwareLicenseItemContainer">
+                    <a href="">WPF Animated GIF 
+						(https://github.com/thomaslevesque/WpfAnimatedGif) is 
+						provided under Apache license 2.0<br />
+						<br />
+						Copyright 2013<br />
+						<br />
+						License:<br />
+						<br />
+						Apache License 2.0 (Apache)<br />
+						Apache License<br />
+						Version 2.0, January 2004<br />
+						http://www.apache.org/licenses/<br />
+						<br />
+						TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND 
+						DISTRIBUTION<br />
+						<br />
+						1. Definitions.<br />
+						<br />
+						&quot;License&quot; shall mean the terms and conditions for use, 
+						reproduction, and distribution as defined by Sections 1 
+						through 9 of this document.<br />
+						<br />
+						&quot;Licensor&quot; shall mean the copyright owner or entity 
+						authorized by the copyright owner that is granting the 
+						License.<br />
+						<br />
+						&quot;Legal Entity&quot; shall mean the union of the acting entity 
+						and all other entities that control, are controlled by, 
+						or are under common control with that entity. For the 
+						purposes of this definition, &quot;control&quot; means (i) the 
+						power, direct or indirect, to cause the direction or 
+						management of such entity, whether by contract or 
+						otherwise, or (ii) ownership of fifty percent (50%) or 
+						more of the outstanding shares, or (iii) beneficial 
+						ownership of such entity.<br />
+						<br />
+						&quot;You&quot; (or &quot;Your&quot;) shall mean an individual or Legal 
+						Entity exercising permissions granted by this License.<br />
+						<br />
+						&quot;Source&quot; form shall mean the preferred form for making 
+						modifications, including but not limited to software 
+						source code, documentation source, and configuration 
+						files.<br />
+						<br />
+						&quot;Object&quot; form shall mean any form resulting from 
+						mechanical transformation or translation of a Source 
+						form, including but not limited to compiled object code, 
+						generated documentation, and conversions to other media 
+						types.<br />
+						<br />
+						&quot;Work&quot; shall mean the work of authorship, whether in 
+						Source or Object form, made available under the License, 
+						as indicated by a copyright notice that is included in 
+						or attached to the work (an example is provided in the 
+						Appendix below).<br />
+						<br />
+						&quot;Derivative Works&quot; shall mean any work, whether in 
+						Source or Object form, that is based on (or derived 
+						from) the Work and for which the editorial revisions, 
+						annotations, elaborations, or other modifications 
+						represent, as a whole, an original work of authorship. 
+						For the purposes of this License, Derivative Works shall 
+						not include works that remain separable from, or merely 
+						link (or bind by name) to the interfaces of, the Work 
+						and Derivative Works thereof.<br />
+						<br />
+						&quot;Contribution&quot; shall mean any work of authorship, 
+						including the original version of the Work and any 
+						modifications or additions to that Work or Derivative 
+						Works thereof, that is intentionally submitted to 
+						Licensor for inclusion in the Work by the copyright 
+						owner or by an individual or Legal Entity authorized to 
+						submit on behalf of the copyright owner. For the 
+						purposes of this definition, &quot;submitted&quot; means any form 
+						of electronic, verbal, or written communication sent to 
+						the Licensor or its representatives, including but not 
+						limited to communication on electronic mailing lists, 
+						source code control systems, and issue tracking systems 
+						that are managed by, or on behalf of, the Licensor for 
+						the purpose of discussing and improving the Work, but 
+						excluding communication that is conspicuously marked or 
+						otherwise designated in writing by the copyright owner 
+						as &quot;Not a Contribution.&quot;<br />
+						<br />
+						&quot;Contributor&quot; shall mean Licensor and any individual or 
+						Legal Entity on behalf of whom a Contribution has been 
+						received by Licensor and subsequently incorporated 
+						within the Work.<br />
+						<br />
+						2. Grant of Copyright License.<br />
+						<br />
+						Subject to the terms and conditions of this License, 
+						each Contributor hereby grants to You a perpetual, 
+						worldwide, non-exclusive, no-charge, royalty-free, 
+						irrevocable copyright license to reproduce, prepare 
+						Derivative Works of, publicly display, publicly perform, 
+						sublicense, and distribute the Work and such Derivative 
+						Works in Source or Object form.<br />
+						<br />
+						3. Grant of Patent License.<br />
+						<br />
+						Subject to the terms and conditions of this License, 
+						each Contributor hereby grants to You a perpetual, 
+						worldwide, non-exclusive, no-charge, royalty-free, 
+						irrevocable (except as stated in this section) patent 
+						license to make, have made, use, offer to sell, sell, 
+						import, and otherwise transfer the Work, where such 
+						license applies only to those patent claims licensable 
+						by such Contributor that are necessarily infringed by 
+						their Contribution(s) alone or by combination of their 
+						Contribution(s) with the Work to which such 
+						Contribution(s) was submitted. If You institute patent 
+						litigation against any entity (including a cross-claim 
+						or counterclaim in a lawsuit) alleging that the Work or 
+						a Contribution incorporated within the Work constitutes 
+						direct or contributory patent infringement, then any 
+						patent licenses granted to You under this License for 
+						that Work shall terminate as of the date such litigation 
+						is filed.<br />
+						<br />
+						4. Redistribution.<br />
+						<br />
+						You may reproduce and distribute copies of the Work or 
+						Derivative Works thereof in any medium, with or without 
+						modifications, and in Source or Object form, provided 
+						that You meet the following conditions:<br />
+						<br />
+						1. You must give any other recipients of the Work or 
+						Derivative Works a copy of this License; and<br />
+						<br />
+						2. You must cause any modified files to carry prominent 
+						notices stating that You changed the files; and<br />
+						<br />
+						3. You must retain, in the Source form of any Derivative 
+						Works that You distribute, all copyright, patent, 
+						trademark, and attribution notices from the Source form 
+						of the Work, excluding those notices that do not pertain 
+						to any part of the Derivative Works; and<br />
+						<br />
+						4. If the Work includes a &quot;NOTICE&quot; text file as part of 
+						its distribution, then any Derivative Works that You 
+						distribute must include a readable copy of the 
+						attribution notices contained within such NOTICE file, 
+						excluding those notices that do not pertain to any part 
+						of the Derivative Works, in at least one of the 
+						following places: within a NOTICE text file distributed 
+						as part of the Derivative Works; within the Source form 
+						or documentation, if provided along with the Derivative 
+						Works; or, within a display generated by the Derivative 
+						Works, if and wherever such third-party notices normally 
+						appear. The contents of the NOTICE file are for 
+						informational purposes only and do not modify the 
+						License. You may add Your own attribution notices within 
+						Derivative Works that You distribute, alongside or as an 
+						addendum to the NOTICE text from the Work, provided that 
+						such additional attribution notices cannot be construed 
+						as modifying the License.<br />
+						<br />
+						You may add Your own copyright statement to Your 
+						modifications and may provide additional or different 
+						license terms and conditions for use, reproduction, or 
+						distribution of Your modifications, or for any such 
+						Derivative Works as a whole, provided Your use, 
+						reproduction, and distribution of the Work otherwise 
+						complies with the conditions stated in this License.<br />
+						<br />
+						5. Submission of Contributions.<br />
+						<br />
+						Unless You explicitly state otherwise, any Contribution 
+						intentionally submitted for inclusion in the Work by You 
+						to the Licensor shall be under the terms and conditions 
+						of this License, without any additional terms or 
+						conditions. Notwithstanding the above, nothing herein 
+						shall supersede or modify the terms of any separate 
+						license agreement you may have executed with Licensor 
+						regarding such Contributions.<br />
+						<br />
+						6. Trademarks.<br />
+						<br />
+						This License does not grant permission to use the trade 
+						names, trademarks, service marks, or product names of 
+						the Licensor, except as required for reasonable and 
+						customary use in describing the origin of the Work and 
+						reproducing the content of the NOTICE file.<br />
+						<br />
+						7. Disclaimer of Warranty.<br />
+						<br />
+						Unless required by applicable law or agreed to in 
+						writing, Licensor provides the Work (and each 
+						Contributor provides its Contributions) on an &quot;AS IS&quot; 
+						BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, 
+						either express or implied, including, without 
+						limitation, any warranties or conditions of TITLE, 
+						NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A 
+						PARTICULAR PURPOSE. You are solely responsible for 
+						determining the appropriateness of using or 
+						redistributing the Work and assume any risks associated 
+						with Your exercise of permissions under this License.<br />
+						<br />
+						8. Limitation of Liability.<br />
+						<br />
+						In no event and under no legal theory, whether in tort 
+						(including negligence), contract, or otherwise, unless 
+						required by applicable law (such as deliberate and 
+						grossly negligent acts) or agreed to in writing, shall 
+						any Contributor be liable to You for damages, including 
+						any direct, indirect, special, incidental, or 
+						consequential damages of any character arising as a 
+						result of this License or out of the use or inability to 
+						use the Work (including but not limited to damages for 
+						loss of goodwill, work stoppage, computer failure or 
+						malfunction, or any and all other commercial damages or 
+						losses), even if such Contributor has been advised of 
+						the possibility of such damages.<br />
+						<br />
+						9. Accepting Warranty or Additional Liability.<br />
+						<br />
+						While redistributing the Work or Derivative Works 
+						thereof, You may choose to offer, and charge a fee for, 
+						acceptance of support, warranty, indemnity, or other 
+						liability obligations and/or rights consistent with this 
+						License. However, in accepting such obligations, You may 
+						act only on Your own behalf and on Your sole 
+						responsibility, not on behalf of any other Contributor, 
+						and only if You agree to indemnify, defend, and hold 
+						each Contributor harmless for any liability incurred by, 
+						or claims asserted against, such Contributor by reason 
+						of your accepting any such warranty or additional 
+						liability.<br />
+						</a>
+                    </div>
+                    
+                    <div class="softwareLicenseItemContainer">
+                    	NdefLibrary (https://github.com/andijakl/ndef-nfc) is 
+						provided under LGPL 3 license<br />
+						<br />
+						Copyright: Copyright © 2012-2016 Andreas Jakl<br />
+						<br />
+						License:<br />
+						<br />
+						GNU LESSER GENERAL PUBLIC LICENSE<br />
+						Version 3, 29 June 2007<br />
+						<br />
+						Copyright (C) 2007 Free Software Foundation, Inc. 
+						&lt;http://fsf.org/&gt;<br />
+						Everyone is permitted to copy and distribute verbatim 
+						copies of this license document, but changing it is not 
+						allowed.<br />
+						<br />
+						<br />
+						This version of the GNU Lesser General Public License 
+						incorporates the terms and conditions of version 3 of 
+						the GNU General Public License, supplemented by the 
+						additional permissions listed below.<br />
+						<br />
+						0. Additional Definitions.<br />
+						<br />
+						As used herein, &quot;this License&quot; refers to version 3 of 
+						the GNU Lesser General Public License, and the &quot;GNU GPL&quot; 
+						refers to version 3 of the GNU General Public License.<br />
+						<br />
+						&quot;The Library&quot; refers to a covered work governed by this 
+						License, other than an Application or a Combined Work as 
+						defined below.<br />
+						<br />
+						An &quot;Application&quot; is any work that makes use of an 
+						interface provided by the Library, but which is not 
+						otherwise based on the Library. Defining a subclass of a 
+						class defined by the Library is deemed a mode of using 
+						an interface provided by the Library.<br />
+						<br />
+						A &quot;Combined Work&quot; is a work produced by combining or 
+						linking an Application with the Library. The particular 
+						version of the Library with which the Combined Work was 
+						made is also called the &quot;Linked Version&quot;.<br />
+						<br />
+						The &quot;Minimal Corresponding Source&quot; for a Combined Work 
+						means the Corresponding Source for the Combined Work, 
+						excluding any source code for portions of the Combined 
+						Work that, considered in isolation, are based on the 
+						Application, and not on the Linked Version.<br />
+						<br />
+						The &quot;Corresponding Application Code&quot; for a Combined Work 
+						means the object code and/or source code for the 
+						Application, including any data and utility programs 
+						needed for reproducing the Combined Work from the 
+						Application, but excluding the System Libraries of the 
+						Combined Work.<br />
+						<br />
+						1. Exception to Section 3 of the GNU GPL.<br />
+						<br />
+						You may convey a covered work under sections 3 and 4 of 
+						this License without being bound by section 3 of the GNU 
+						GPL.<br />
+						<br />
+						2. Conveying Modified Versions.<br />
+						<br />
+						If you modify a copy of the Library, and, in your 
+						modifications, a facility refers to a function or data 
+						to be supplied by an Application that uses the facility 
+						(other than as an argument passed when the facility is 
+						invoked), then you may convey a copy of the modified 
+						version:<br />
+						<br />
+						a) under this License, provided that you make a good 
+						faith effort to ensure that, in the event an Application 
+						does not supply the function or data, the facility still 
+						operates, and performs whatever part of its purpose 
+						remains meaningful, or <br />
+						<br />
+						b) under the GNU GPL, with none of the additional 
+						permissions of this License applicable to that copy.<br />
+						<br />
+						3. Object Code Incorporating Material from Library 
+						Header Files.<br />
+						<br />
+						The object code form of an Application may incorporate 
+						material from a header file that is part of the Library. 
+						You may convey such object code under terms of your 
+						choice, provided that, if the incorporated material is 
+						not limited to numerical parameters, data structure 
+						layouts and accessors, or small macros, inline functions 
+						and templates (ten or fewer lines in length), you do 
+						both of the following:<br />
+						<br />
+						a) Give prominent notice with each copy of the object 
+						code that the Library is used in it and that the Library 
+						and its use are covered by this License.<br />
+						<br />
+						b) Accompany the object code with a copy of the GNU GPL 
+						and this license document.<br />
+						<br />
+						4. Combined Works.<br />
+						<br />
+						You may convey a Combined Work under terms of your 
+						choice that, taken together, effectively do not restrict 
+						modification of the portions of the Library contained in 
+						the Combined Work and reverse engineering for debugging 
+						such modifications, if you also do each of the 
+						following:<br />
+						<br />
+						a) Give prominent notice with each copy of the Combined 
+						Work that the Library is used in it and that the Library 
+						and its use are covered by this License.<br />
+						<br />
+						b) Accompany the Combined Work with a copy of the GNU 
+						GPL and this license document.<br />
+						<br />
+						c) For a Combined Work that displays copyright notices 
+						during execution, include the copyright notice for the 
+						Library among these notices, as well as a reference 
+						directing the user to the copies of the GNU GPL and this 
+						license document.<br />
+						<br />
+						d) Do one of the following:<br />
+						<br />
+						0) Convey the Minimal Corresponding Source under the 
+						terms of this License, and the Corresponding Application 
+						Code in a form suitable for, and under terms that 
+						permit, the user to recombine or relink the Application 
+						with a modified version of the Linked Version to produce 
+						a modified Combined Work, in the manner specified by 
+						section 6 of the GNU GPL for conveying Corresponding 
+						Source.<br />
+						<br />
+						1) Use a suitable shared library mechanism for linking 
+						with the Library. A suitable mechanism is one that (a) 
+						uses at run time a copy of the Library already present 
+						on the user&#39;s computer system, and (b) will operate 
+						properly with a modified version of the Library that is 
+						interface-compatible with the Linked Version.<br />
+						<br />
+						e) Provide Installation Information, but only if you 
+						would otherwise be required to provide such information 
+						under section 6 of the GNU GPL, and only to the extent 
+						that such information is necessary to install and 
+						execute a modified version of the Combined Work produced 
+						by recombining or relinking the Application with a 
+						modified version of the Linked Version. (If you use 
+						option 4d0, the Installation Information must accompany 
+						the Minimal Corresponding Source and Corresponding 
+						Application Code. If you use option 4d1, you must 
+						provide the Installation Information in the manner 
+						specified by section 6 of the GNU GPL for conveying 
+						Corresponding Source.)<br />
+						<br />
+						5. Combined Libraries.<br />
+						<br />
+						You may place library facilities that are a work based 
+						on the Library side by side in a single library together 
+						with other library facilities that are not Applications 
+						and are not covered by this License, and convey such a 
+						combined library under terms of your choice, if you do 
+						both of the following:<br />
+						<br />
+						a) Accompany the combined library with a copy of the 
+						same work based on the Library, uncombined with any 
+						other library facilities, conveyed under the terms of 
+						this License.<br />
+						<br />
+						b) Give prominent notice with the combined library that 
+						part of it is a work based on the Library, and 
+						explaining where to find the accompanying uncombined 
+						form of the same work.<br />
+						<br />
+						6. Revised Versions of the GNU Lesser General Public 
+						License.<br />
+						<br />
+						The Free Software Foundation may publish revised and/or 
+						new versions of the GNU Lesser General Public License 
+						from time to time. Such new versions will be similar in 
+						spirit to the present version, but may differ in detail 
+						to address new problems or concerns.<br />
+						<br />
+						Each version is given a distinguishing version number. 
+						If the Library as you received it specifies that a 
+						certain numbered version of the GNU Lesser General 
+						Public License &quot;or any later version&quot; applies to it, you 
+						have the option of following the terms and conditions 
+						either of that published version or of any later version 
+						published by the Free Software Foundation. If the 
+						Library as you received it does not specify a version 
+						number of the GNU Lesser General Public License, you may 
+						choose any version of the GNU Lesser General Public 
+						License ever published by the Free Software Foundation.<br />
+						<br />
+						If the Library as you received it specifies that a proxy 
+						can decide whether future versions of the GNU Lesser 
+						General Public License shall apply, that proxy&#39;s public 
+						statement of acceptance of any version is permanent 
+						authorization for you to choose that version for the 
+						Library.<br />
+                    </div>
+                    
+                    <div class="softwareLicenseItemContainer">
+                    	SharpVectors (https://sharpvectors.codeplex.com) is 
+						provided under New BSD License (BSD)<br />
+						<br />
+						Copyright: Copyright © 2016<br />
+						<br />
+						License:<br />
+						<br />
+						New BSD License (BSD)<br />
+						Copyright (c) 2010, SharpVectorGraphics<br />
+						All rights reserved.<br />
+						<br />
+						Redistribution and use in source and binary forms, with 
+						or without modification, are permitted provided that the 
+						following conditions are met:<br />
+						<br />
+						* Redistributions of source code must retain the above 
+						copyright notice, this list of conditions and the 
+						following disclaimer.<br />
+						<br />
+						* Redistributions in binary form must reproduce the 
+						above copyright notice, this list of conditions and the 
+						following disclaimer in the documentation and/or other 
+						materials provided with the distribution.<br />
+						<br />
+						* Neither the name of SharpVectorGraphics nor the names 
+						of its contributors may be used to endorse or promote 
+						products derived from this software without specific 
+						prior written permission.<br />
+						<br />
+						THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+						CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED 
+						WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+						WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A 
+						PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE 
+						COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY 
+						DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
+						CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, 
+						PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF 
+						USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+						CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
+						CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING 
+						NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE 
+						USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY 
+						OF SUCH DAMAGE.<br />
+						<br />
+						license history<br />
+						<br />
+						CURRENT (STARTED SEP 7, 2010) Displayed<br />
+                    </div>
+                    
+                    <div class="softwareLicenseItemContainer">
+                    <a href="">Newtonsoft.Json</a>
+                    	(https://www.newtonsoft.com/json) is provided under MIT 
+						license<br />
+						Copyright: Copyright © 2008<br />
+						<br />
+						License:<ARTICLE class="markdown-body entry-content" itemprop="text"><p>
+						Copyright (c) 2007 James Newton-King</p>
+						<p>Permission is hereby granted, free of charge, to any 
+						person obtaining a copy of this software and associated 
+						documentation files (the &quot;Software&quot;), to deal in the 
+						Software without restriction, including without 
+						limitation the rights to use, copy, modify, merge, 
+						publish, distribute, sublicense, and/or sell copies of 
+						the Software, and to permit persons to whom the Software 
+						is furnished to do so, subject to the following 
+						conditions:</p>
+						<p>The above copyright notice and this permission notice 
+						shall be included in all copies or substantial portions 
+						of the Software.</p>
+						<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF 
+						ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED 
+						TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
+						PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT 
+						SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
+						CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION 
+						OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR 
+						IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+						DEALINGS IN THE SOFTWARE.</p>
+                    </div>
+                    
+                    <div class="softwareLicenseItemContainer">
+                    </div>
+                    
+                    <div class="softwareLicenseItemContainer">
+                    <a href=""></a>
+                    </div>
+                    
+                    
+            </div>
+        </div>
+    </div>
+    <footer id="landingPageFooter">
+        <span id="landingPageFooterText">
+           &copy; 2016 ZIH Corp. All rights reserved. &middot; <a href="http://www.zebra.com">Zebra.com</a>
+        </span>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,338 @@
+เข้าใจโจทย์แล้วครับ! จัดการอัปเกรดให้อีกขั้นตามจุดที่คุณวงกลมไว้เป๊ะๆ เลย:
+
+1. **เพิ่มหลุมกลางโต๊ะ (รวมเป็น 6 หลุม):** เพิ่มหลุมตรงกลางขอบบนและขอบล่างตามมาตรฐานโต๊ะสนุกเกอร์จริงแล้วครับ
+2. **แก้บั๊กเมาส์หลุดขอบโต๊ะ (ลากนอกโต๊ะได้ปกติ):** สาเหตุเดิมเกิดจากตัวคิวรี่ดักจับ Event การลากเมาส์อยู่แค่บน `canvas` พอเมาส์เลื่อนเลยกรอบไม้สีน้ำตาลออกไป ระบบเลยค้างและหยุดคิดพลัง ผมเปลี่ยนไปดักจับ Event ที่ระดับ `window` (ทั้งหน้าจอ) แทนแล้วครับ ต่อให้ลากเมาส์ทะลุขอบจอไปถึงไหน ไม้คิวและเกจพลังก็จะยังชาร์จตามตำแหน่งเมาส์ได้อย่างลื่นไหล ไม่มีสะดุดแน่นอนครับ!
+
+---
+
+### 🛠️ โค้ดที่อัปเกรดเสร็จสมบูรณ์ (มี 6 หลุม + ลากเมาส์นอกโต๊ะได้)
+
+ก๊อปปี้โค้ดตัวนี้ไปวางทับไฟล์เดิมได้เลยครับ:
+
+```html
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro 6-Pocket Billiards Game</title>
+    <style>
+        body {
+            background-color: #2c3e50;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            user-select: none;
+        }
+        h1 {
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .controls {
+            margin-bottom: 15px;
+            color: #bdc3c7;
+        }
+        .table-container {
+            position: relative;
+            width: 600px;
+            margin: 0 auto;
+        }
+        .power-container {
+            width: 100%;
+            height: 15px;
+            background-color: #34495e;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            overflow: hidden;
+            display: flex;
+        }
+        #powerBar {
+            width: 0%;
+            height: 100%;
+            background-color: #2ecc71;
+            transition: width 0.05s linear;
+        }
+        canvas {
+            background-color: #008080;
+            display: block;
+            border: 15px solid #8B4513;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🎱 เกมสนุกเกอร์รุ่นโปร (6 หลุม)</h1>
+    <div class="controls">วิธีเล่น: <b>คลิกเมาส์ค้างที่ลูกขาว > ลากถอยหลัง (ออกนอกขอบโต๊ะได้)</b> เพื่อชาร์จพลัง > <b>ปล่อย</b> เพื่อแทง</div>
+    
+    <div class="table-container">
+        <div class="power-container">
+            <div id="powerBar"></div>
+        </div>
+        <canvas id="gameCanvas" width="600" height="350"></canvas>
+    </div>
+
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+        const powerBar = document.getElementById("powerBar");
+
+        let friction = 0.985; 
+        let ballRadius = 12;
+
+        let isDragging = false;
+        let mouseX = 0;
+        let mouseY = 0;
+        let currentPower = 0;
+        let maxPower = 100;
+
+        let balls = [];
+        let cueBall; 
+        let pockets = [];
+
+        function initGame() {
+            balls = [];
+
+            // 1. สร้างลูกขาว
+            cueBall = {
+                x: 150,
+                y: canvas.height / 2,
+                vx: 0,
+                vy: 0,
+                color: "#FFFFFF",
+                isCue: true
+            };
+            balls.push(cueBall);
+
+            // 2. สร้างหลุมมาตรฐานสนุกเกอร์ (เพิ่มหลุมกลางโต๊ะ รวมเป็น 6 หลุม 🌟)
+            pockets = [
+                {x: 0, y: 0, radius: ballRadius * 1.8},                  // มุมบนซ้าย
+                {x: canvas.width / 2, y: 0, radius: ballRadius * 1.6},   // หลุมกลางบน
+                {x: canvas.width, y: 0, radius: ballRadius * 1.8},        // มุมบนขวา
+                {x: 0, y: canvas.height, radius: ballRadius * 1.8},            // มุมล่างซ้าย
+                {x: canvas.width / 2, y: canvas.height, radius: ballRadius * 1.6}, // หลุมกลางล่าง
+                {x: canvas.width, y: canvas.height, radius: ballRadius * 1.8}      // มุมล่างขวา
+            ];
+
+            // 3. สร้างลูกสีอื่นๆ
+            let colors = ["#E74C3C", "#F1C40F", "#2ECC71", "#9B59B6", "#3498DB"];
+            let startX = 400;
+            let startY = canvas.height / 2;
+            let count = 0;
+
+            for (let i = 0; i < 5; i++) {
+                for (let j = 0; j <= i; j++) {
+                    balls.push({
+                        x: startX + i * (ballRadius * 2 + 1),
+                        y: startY - (i * ballRadius) + j * (ballRadius * 2 + 1),
+                        vx: 0,
+                        vy: 0,
+                        color: colors[count % colors.length],
+                        isCue: false
+                    });
+                    count++;
+                }
+            }
+        }
+
+        function areBallsStationary() {
+            return balls.every(ball => Math.abs(ball.vx) < 0.05 && Math.abs(ball.vy) < 0.05);
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // วาดหลุม (6 หลุม)
+            ctx.fillStyle = "#111111";
+            pockets.forEach(pocket => {
+                ctx.beginPath();
+                ctx.arc(pocket.x, pocket.y, pocket.radius, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            // วาดเส้นเล็งและไม้คิว
+            if (isDragging && areBallsStationary()) {
+                let dx = mouseX - cueBall.x;
+                let dy = mouseY - cueBall.y;
+                let angle = Math.atan2(dy, dx);
+                let distance = Math.sqrt(dx*dx + dy*dy);
+                
+                currentPower = Math.min(distance * 0.6, maxPower);
+                powerBar.style.width = currentPower + "%";
+
+                if(currentPower < 40) powerBar.style.backgroundColor = "#2ecc71";
+                else if(currentPower < 75) powerBar.style.backgroundColor = "#f1c40f";
+                else powerBar.style.backgroundColor = "#e74c3c";
+
+                // 🔴 วาดเส้นเลเซอร์นำทางไปข้างหน้า
+                let laserLength = 600; 
+                let targetAngle = angle + Math.PI; 
+                ctx.beginPath();
+                ctx.moveTo(cueBall.x, cueBall.y);
+                ctx.lineTo(cueBall.x + Math.cos(targetAngle) * laserLength, cueBall.y + Math.sin(targetAngle) * laserLength);
+                ctx.strokeStyle = "rgba(255, 0, 0, 0.4)"; 
+                ctx.lineWidth = 2;
+                ctx.setLineDash([6, 6]); 
+                ctx.stroke();
+                ctx.setLineDash([]); 
+
+                // 🏑 วาดไม้สนุกเกอร์
+                let stickDistance = 20 + (currentPower * 0.3); 
+                let stickLength = 170;
+                let startStickX = cueBall.x + Math.cos(angle) * stickDistance;
+                let startStickY = cueBall.y + Math.sin(angle) * stickDistance;
+                let endStickX = cueBall.x + Math.cos(angle) * (stickDistance + stickLength);
+                let endStickY = cueBall.y + Math.sin(angle) * (stickDistance + stickLength);
+
+                ctx.beginPath();
+                ctx.moveTo(startStickX, startStickY);
+                ctx.lineTo(endStickX, endStickY);
+                ctx.strokeStyle = "#D2B48C"; 
+                ctx.lineWidth = 5;
+                ctx.lineCap = "round";
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.moveTo(startStickX, startStickY);
+                ctx.lineTo(cueBall.x + Math.cos(angle) * (stickDistance + 10), cueBall.y + Math.sin(angle) * (stickDistance + 10));
+                ctx.strokeStyle = "#FF5722";
+                ctx.lineWidth = 5;
+                ctx.stroke();
+            } else {
+                powerBar.style.width = "0%"; 
+            }
+
+            // วาดลูกบอล
+            balls.forEach(ball => {
+                ctx.beginPath();
+                ctx.arc(ball.x, ball.y, ballRadius, 0, Math.PI * 2);
+                ctx.fillStyle = ball.color;
+                ctx.fill();
+                ctx.strokeStyle = "#000000";
+                ctx.lineWidth = 1;
+                ctx.stroke();
+                ctx.closePath();
+            });
+        }
+
+        function update() {
+            balls.forEach(ball => {
+                ball.x += ball.vx;
+                ball.y += ball.vy;
+
+                ball.vx *= friction;
+                ball.vy *= friction;
+
+                if(Math.abs(ball.vx) < 0.01) ball.vx = 0;
+                if(Math.abs(ball.vy) < 0.01) ball.vy = 0;
+
+                if (ball.x - ballRadius < 0) { ball.x = ballRadius; ball.vx *= -1; }
+                if (ball.x + ballRadius > canvas.width) { ball.x = canvas.width - ballRadius; ball.vx *= -1; }
+                if (ball.y - ballRadius < 0) { ball.y = ballRadius; ball.vy *= -1; }
+                if (ball.y + ballRadius > canvas.height) { ball.y = canvas.height - ballRadius; ball.vy *= -1; }
+
+                pockets.forEach(pocket => {
+                    let dist = Math.sqrt(Math.pow(ball.x - pocket.x, 2) + Math.pow(ball.y - pocket.y, 2));
+                    if (dist < pocket.radius) {
+                        if (ball.isCue) {
+                            ball.x = 150;
+                            ball.y = canvas.height / 2;
+                            ball.vx = 0;
+                            ball.vy = 0;
+                        } else {
+                            balls = balls.filter(b => b !== ball);
+                        }
+                    }
+                });
+            });
+
+            for (let i = 0; i < balls.length; i++) {
+                for (let j = i + 1; j < balls.length; j++) {
+                    let ball1 = balls[i];
+                    let ball2 = balls[j];
+                    let dist = Math.sqrt(Math.pow(ball1.x - ball2.x, 2) + Math.pow(ball1.y - ball2.y, 2));
+
+                    if (dist < ballRadius * 2) {
+                        let dx = ball2.x - ball1.x;
+                        let dy = ball2.y - ball1.y;
+                        let collisionAngle = Math.atan2(dy, dx);
+
+                        let speed1 = Math.sqrt(ball1.vx * ball1.vx + ball1.vy * ball1.vy);
+                        let speed2 = Math.sqrt(ball2.vx * ball2.vx + ball2.vy * ball2.vy);
+
+                        let direction1 = Math.atan2(ball1.vy, ball1.vx);
+                        let direction2 = Math.atan2(ball2.vy, ball2.vx);
+
+                        let vx1_final = speed2 * Math.cos(direction2 - collisionAngle) * Math.cos(collisionAngle) + speed1 * Math.sin(direction1 - collisionAngle) * Math.cos(collisionAngle + Math.PI/2);
+                        let vy1_final = speed2 * Math.cos(direction2 - collisionAngle) * Math.sin(collisionAngle) + speed1 * Math.sin(direction1 - collisionAngle) * Math.sin(collisionAngle + Math.PI/2);
+                        let vx2_final = speed1 * Math.cos(direction1 - collisionAngle) * Math.cos(collisionAngle) + speed2 * Math.sin(direction2 - collisionAngle) * Math.cos(collisionAngle + Math.PI/2);
+                        let vy2_final = speed1 * Math.cos(direction1 - collisionAngle) * Math.sin(collisionAngle) + speed2 * Math.sin(direction2 - collisionAngle) * Math.sin(collisionAngle + Math.PI/2);
+
+                        ball1.vx = vx1_final;
+                        ball1.vy = vy1_final;
+                        ball2.vx = vx2_final;
+                        ball2.vy = vy2_final;
+
+                        let overlap = (ballRadius * 2 - dist) / 2;
+                        ball1.x -= overlap * Math.cos(collisionAngle);
+                        ball1.y -= overlap * Math.sin(collisionAngle);
+                        ball2.x += overlap * Math.cos(collisionAngle);
+                        ball2.y += overlap * Math.sin(collisionAngle);
+                    }
+                }
+            }
+
+            draw();
+            requestAnimationFrame(update);
+        }
+
+        // --- แก้ไขระบบเมาส์: ดักจับทั้งหน้าต่างโครม (window) เพื่อให้ลากทะลุออกนอกบอร์ดได้ 🌟 ---
+        canvas.addEventListener("mousedown", (e) => {
+            if (areBallsStationary()) { 
+                const rect = canvas.getBoundingClientRect();
+                let clickX = e.clientX - rect.left;
+                let clickY = e.clientY - rect.top;
+
+                let dist = Math.sqrt(Math.pow(clickX - cueBall.x, 2) + Math.pow(clickY - cueBall.y, 2));
+                if (dist < ballRadius * 3) { 
+                    isDragging = true;
+                    mouseX = clickX;
+                    mouseY = clickY;
+                }
+            }
+        });
+
+        // ใช้ window แทน canvas เพื่อไม่ให้เมาส์หลุดตำแหน่งเวลาออกนอกกรอบ
+        window.addEventListener("mousemove", (e) => {
+            if (isDragging) {
+                const rect = canvas.getBoundingClientRect();
+                mouseX = e.clientX - rect.left;
+                mouseY = e.clientY - rect.top;
+            }
+        });
+
+        window.addEventListener("mouseup", () => {
+            if (isDragging) {
+                let dx = mouseX - cueBall.x;
+                let dy = mouseY - cueBall.y;
+                let angle = Math.atan2(dy, dx);
+                
+                let shootPower = currentPower * 0.15;
+                cueBall.vx = -Math.cos(angle) * shootPower;
+                cueBall.vy = -Math.sin(angle) * shootPower;
+
+                isDragging = false;
+                currentPower = 0;
+            }
+        });
+
+        initGame();
+        update();
+    </script>
+</body>
+</html>
+

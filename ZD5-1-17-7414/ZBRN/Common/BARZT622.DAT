@@ -1,0 +1,43 @@
+[About]Version=Version 5.1.17.7414
+Logo=About.bmp
+Text1=0,315,Windows driver for ZDesigner ZTC ZT620R-203dpi ZPL
+Text2=0,330,Version 5.1.17.7414
+Text3=0,365,Copyright 2023 (C) Zebra Technologies
+Text4=0,380,All Rights Reserved
+URL=http://www.zebra.com
+[FileInfo]
+Base=ZEZD50R2
+Name=ZDesigner ZTC ZT620R-203dpi ZPL
+
+[Defaults]
+PageWidth=762
+PageHeight=508
+Speed=6
+Darkness=15
+HDPI=203
+VDPI=203
+MediaType=0
+MCSlotType1=0
+MCSlotType2=0
+MCSlotType3=0
+MCSlotType4=0
+MCSlotSize1=0
+MCSlotSize2=0
+MCSlotSize3=0
+MCSlotSize4=0
+Switch7=0
+[ConstParams]
+PageOffset=0
+SpeedUnit=""/s"
+MaxMediaWidth=1803
+FixedHorzUA=0
+HorzUAMode=1
+RFIDSupport=9
+SpeedLimits="2..12"
+DarknessLimits="0..30"
+MaxWidth=1680
+MaxHeight=9910
+MinWidth=20
+MinHeight=60
+UseRibbonSaver=1
+CutEnabled=1[MemoryCards]MCSlot1=""DRAM",8192,2,ZEBRADL,ZEBRADL,"MCSlot2=""Flash",65536,2,ZEBRADL,ZEBRADL,"MCSlot3=""",0,1"MCSlot4=""",0,1"[ToolInfo]Tool0=ToolsZPL.dllParam0=STANDARD,LINKOS
